@@ -248,7 +248,7 @@
           </a-space>
           <a-space :align="'baseline'">
             <span class="label">
-              của giám đốc Học Viện Kỹ Thuật Mật Mã, em được phép bảo lưu kết
+              của giám đốc Trường đại học công nghệ giao thông vận tải, em được phép bảo lưu kết
               quả học tập từ ngày
             </span>
             <FormItem

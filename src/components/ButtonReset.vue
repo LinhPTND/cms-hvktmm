@@ -1,14 +1,13 @@
 <template>
-  <Button type="primary" danger>
-    <template #icon>
+  <a-button type="red">
+    <div class="flex flex-row items-center gap-2">
       <sync-outlined />
-    </template>
-    <slot> Reset </slot>
-  </Button>
+      <span>Reset</span>
+    </div>
+  </a-button>
 </template>
 
 <script lang="ts" setup>
-import Button, { ButtonProps } from "@/components/Button.vue";
 import { SyncOutlined } from "@ant-design/icons-vue";
 import { useI18n } from "vue-i18n";
 

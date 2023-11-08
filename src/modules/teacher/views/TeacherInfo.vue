@@ -29,7 +29,7 @@
           >
             Đổi mật khẩu
           </a-button>
-          <ButtonEdit type="primary" success @click="showModalEdit" />
+          <ButtonEdit success @click="showModalEdit" />
         </div>
       </div>
       <a-row class="mb-2" :gutter="[16, 16]">

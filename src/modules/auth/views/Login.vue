@@ -31,7 +31,7 @@
         </a-form-item>
 
         <div class="flex items-center justify-center mt-[16px]">
-          <Button btn-type="primary" html-type="submit">Đăng nhập</Button>
+          <a-button type="primary" html-type="submit">Đăng nhập</a-button>
         </div>
       </a-form>
     </div>

@@ -5,7 +5,8 @@ import Antd from "ant-design-vue";
 import { createPinia } from "pinia";
 import piniaPersist from "pinia-plugin-persist";
 import { createApp, nextTick } from "vue";
-import("@/styles/index.scss").then(() => import("@/styles/antd/index.less"));
+import '@/styles/index.scss'
+
 
 import("@vueup/vue-quill/dist/vue-quill.snow.css");
 

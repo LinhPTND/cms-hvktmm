@@ -72,7 +72,7 @@
         <div class="content-line mb-4">
           <a-space :align="'baseline'" class="mr-6">
             <span class="label">Trường:</span>
-            <span class="font-semibold">Học viện Kỹ thuật mật mã</span>
+            <span class="font-semibold">Trường đại học công nghệ giao thông vận tải</span>
           </a-space>
         </div>
         <div class="content-line">

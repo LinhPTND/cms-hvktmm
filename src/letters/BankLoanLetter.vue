@@ -137,7 +137,7 @@
           Mã trường theo học (Mã theo quy định tuyển sinh): KMA
         </div>
         <div class="content-line mb-6">
-          Tên trường: Học viện Kỹ thuật Mật mã.
+          Tên trường: Trường đại học công nghệ giao thông vận tải.
         </div>
         <div class="content-line">
           <span class="label">Nghành học:</span>
@@ -459,7 +459,7 @@ import { computed, ref } from "vue";
 
 const props = withDefaults(
   defineProps<{
-    initialValues?: BankLoanRequest;
+    initialValues?: any;
     readOnly: boolean;
   }>(),
   {

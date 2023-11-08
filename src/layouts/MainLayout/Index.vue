@@ -1,15 +1,15 @@
 <template>
   <div>
     <Header
-      class="fixed z-50 top-0 w-screen"
+      class="fixed z-50 top-0 left-0 right-0 w-screen"
       @hamburger-click="drawerVisible = true"
     />
     <div class="main-page">
       <SideBar
-        class="main-page__side-bar fixed left-0 pt-[84px] h-screen z-40"
+        class="main-page__side-bar fixed left-0 xl:pt-[104px] h-screen z-40"
         v-model:drawer-visible="drawerVisible"
       />
-      <div class="main-page__main-content">
+      <div class="main-page__main-content xl:pt-[104px]">
         <Suspense @fallback="startLoading" @resolve="stopLoading">
           <RouterView v-slot="{ Component, route }">
             <TransitionFade class="min-h-full" mode="out-in">

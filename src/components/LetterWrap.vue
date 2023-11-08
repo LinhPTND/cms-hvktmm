@@ -54,8 +54,7 @@ const yearNow = computed(() => {
 
 <style lang="scss" scoped>
 .letter-wrap {
-  // border: 1px solid #dcdcdc;
-  padding: 50px 24px 70px 24px;
+  padding: 0 24px 70px 24px;
   letter-spacing: 0.6px;
   .content {
     background: white;

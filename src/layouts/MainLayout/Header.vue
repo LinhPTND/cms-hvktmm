@@ -1,10 +1,9 @@
 <template>
-  <div class="layout-header">
+  <div class="layout-header px-6 xl:h-[80px]">
     <div class="layout-header__left flex items-center gap-3">
       <div class="logo hidden md:block">
         <div class="flex items-center gap-4">
-          <img :src="Assets.Images.Logo" class="h-11" />
-          <div class="title hidden xl:block">Học viện kĩ thuật mật mã</div>
+          <img src="@/assets/images/logo-full.png" class="h-[60px]" />
         </div>
       </div>
       <a-button
@@ -30,7 +29,7 @@
       </span>
       <a-dropdown placement="bottomRight" trigger="click">
         <div class="header-item">
-          <a-avatar class="md:mr-2">V</a-avatar>
+          <a-avatar class="md:mr-2 uppercase">{{user?.username[0]}}</a-avatar>
           <span class="hidden md:inline">{{ user?.username }}</span>
         </div>
         <template #overlay>
@@ -114,7 +113,7 @@ function handleLogout() {
 
 <style lang="scss" scoped>
 .layout-header {
-  @apply py-2 px-0 md:px-4;
+  @apply py-2;
 
   background: #ffffff;
   box-shadow: 0 3px 5px rgb(57 63 72 / 30%);

@@ -1,20 +1,20 @@
 <template>
   <div class="payment-graduation-collective">
-    <div class="flex justify-center mb-[-24px]">
-      <a-affix :offset-top="10">
-        <a-space class="z-[100]">
-          <ButtonSave @click="pickApprover">Apply</ButtonSave>
-          <ButtonReset btn-type="destructive" @click="resetForm"
-            >Reset</ButtonReset
-          >
-        </a-space>
-      </a-affix>
+    <div class="flex justify-center mb-[-24px] col-span-2">
+      <div class="flex flex-row h-fit gap-3 sticky top-[100px]">
+        <ButtonSave @click="pickApprover">Apply</ButtonSave>
+        <ButtonReset btn-type="destructive" @click="resetForm"
+        ></ButtonReset
+        >
+      </div>
     </div>
+    <div class="col-span-10">
     <CancelCourseLetter
       :initial-values="initialValues"
       ref="formLetter"
       @finish="handleFinish"
     />
+      </div>
     <ModalApprover
       :visible="modalApprover"
       @cancel="closeModalApprover"
@@ -50,12 +50,12 @@ const { user: infoUser } = storeToRefs(useUser());
 const { user } = storeToRefs(useAuth());
 const initialValues = ref<any>({
   ...infoUser.value,
-  birthDay: infoUser.value.birthDay
-    ? dayjs(infoUser.value.birthDay).format("YYYY-MM-DD")
-    : infoUser.value.birthDay,
-  dateCitizenId: infoUser.value.dateCitizenId
-    ? dayjs(infoUser.value.dateCitizenId).format("YYYY-MM-DD")
-    : infoUser.value.dateCitizenId,
+  birthDay: infoUser.value?.birthDay
+    ? dayjs(infoUser.value?.birthDay).format("YYYY-MM-DD")
+    : infoUser.value?.birthDay,
+  dateCitizenId: infoUser.value?.dateCitizenId
+    ? dayjs(infoUser.value?.dateCitizenId).format("YYYY-MM-DD")
+    : infoUser.value?.dateCitizenId,
 });
 const { startLoading, stopLoading } = useLoading();
 const modalApprover = ref<boolean>(false);
@@ -96,12 +96,12 @@ watch(
   () => {
     initialValues.value = {
       ...infoUser.value,
-      birthDay: infoUser.value.birthDay
-        ? dayjs(infoUser.value.birthDay).format("YYYY-MM-DD")
-        : infoUser.value.birthDay,
-      dateCitizenId: infoUser.value.dateCitizenId
-        ? dayjs(infoUser.value.dateCitizenId).format("YYYY-MM-DD")
-        : infoUser.value.dateCitizenId,
+      birthDay: infoUser.value?.birthDay
+        ? dayjs(infoUser.value?.birthDay).format("YYYY-MM-DD")
+        : infoUser.value?.birthDay,
+      dateCitizenId: infoUser.value?.dateCitizenId
+        ? dayjs(infoUser.value?.dateCitizenId).format("YYYY-MM-DD")
+        : infoUser.value?.dateCitizenId,
     };
   },
   {
@@ -143,9 +143,10 @@ const handleFinish = (values: CancelCourseRequest) => {
   }
 };
 </script>
-
-<style lang="scss" scoped>
+<style lang="scss">
 .payment-graduation-collective {
+  max-width: 1200px;
+  @apply grid grid-cols-12 mx-auto;
   .title {
     font-size: 16px;
     font-weight: 500;
@@ -157,6 +158,12 @@ const handleFinish = (values: CancelCourseRequest) => {
       h3 {
         text-align: center;
       }
+    }
+
+    .content-line {
+      @apply flex items-baseline w-full flex-wrap;
+      font-size: 13px;
+      line-height: 20px;
     }
   }
 }

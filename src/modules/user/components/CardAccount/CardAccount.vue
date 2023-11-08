@@ -14,7 +14,7 @@
         <a-button class="font-semibold" type="primary" @click="showModalChange">
           Đổi mật khẩu
         </a-button>
-        <ButtonEdit type="primary" success @click="showModalEdit" />
+        <ButtonEdit @click="showModalEdit" />
       </div>
     </div>
     <a-row class="mb-6">

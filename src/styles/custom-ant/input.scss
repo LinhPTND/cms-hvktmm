@@ -1,0 +1,24 @@
+.ant-input {
+  height: 48px;
+  &:hover,
+  &:focus {
+    border-color: $primary-color !important;
+   box-shadow: 0 0 0 2px rgba(255, 138, 5, 0.1);
+  }
+}
+
+.ant-input-password, .ant-input-affix-wrapper-focused {
+  .ant-input {
+    height: 38px;
+  }
+  &:hover,
+  &:focus {
+    border-color: $primary-color !important;
+    box-shadow: 0 0 0 2px rgba(255, 138, 5, 0.1);
+  }
+}
+
+.ant-input-affix-wrapper-focused {
+  border-color: $primary-color !important;
+  box-shadow: 0 0 0 2px rgba(255, 138, 5, 0.1);
+}

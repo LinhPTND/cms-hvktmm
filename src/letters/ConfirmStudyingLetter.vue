@@ -3,7 +3,7 @@
     <div class="title mb-[32]">
       <h3 class="uppercase mb-2 font-semibold">Giấy xác nhận</h3>
       <h4 class="mb-2 font-semibold text-center">
-        Học viện Kỹ thuật mật mã xác nhận:
+        Trường đại học công nghệ giao thông vận tải xác nhận:
       </h4>
     </div>
     <div>
@@ -175,7 +175,7 @@
           </div>
         </div>
         <div class="content-line mb-2">
-          <div>Hiện đang theo học tại Học viện Kỹ thuật mật mã:</div>
+          <div>Hiện đang theo học tại Trường đại học công nghệ giao thông vận tải:</div>
         </div>
         <div class="content-line">
           <a-space :size="4" class="mr-8">
