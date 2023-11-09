@@ -2,9 +2,9 @@
   <div class="layout-header">
     <div class="layout-header__left flex items-center gap-3">
       <div class="logo hidden md:block">
-        <div class="flex items-center gap-4">
+        <a href="/" class="flex items-center gap-4">
           <img src="@/assets/images/logo-full.png" class="h-[60px]" />
-        </div>
+        </a>
       </div>
       <a-button
         type="text"
@@ -19,14 +19,14 @@
     </div>
 
     <div class="layout-header__right flex items-center">
-      <span class="notification-badge mr-6 cursor-pointer">
-        <a-badge color="#D7F9EF" :count="countNotification">
-          <Icon
-            name="notificationMajor"
-            :style="{ fontSize: '24px', color: '#5C5F62' }"
-          />
-        </a-badge>
-      </span>
+<!--      <span class="notification-badge mr-6 cursor-pointer">-->
+<!--        <a-badge color="#D7F9EF" :count="countNotification">-->
+<!--          <Icon-->
+<!--            name="notificationMajor"-->
+<!--            :style="{ fontSize: '24px', color: '#5C5F62' }"-->
+<!--          />-->
+<!--        </a-badge>-->
+<!--      </span>-->
       <a-dropdown placement="bottomRight" trigger="click">
         <div class="header-item">
           <a-avatar class="md:mr-2" style="background-color: #f56a00">

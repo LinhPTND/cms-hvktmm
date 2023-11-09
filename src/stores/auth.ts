@@ -10,6 +10,8 @@ interface AuthStoreState {
     type: "user" | "admin" | "teacher" | null;
     id: string;
     userId: string;
+    name?: string;
+    number?: string;
   };
 }
 
@@ -19,6 +21,7 @@ interface JwtAccessToken {
   type: "user" | "admin" | "teacher";
   username: string;
   userId: string;
+  name: string;
   _id: string;
 }
 
@@ -47,9 +50,10 @@ export const useAuth = defineStore({
 
       if (data.accessToken) {
         const jwtData: JwtAccessToken = jwtDecode(data.accessToken) as any;
-
+        console.log(jwtData)
         this.user = {
           username: jwtData.username,
+          name: jwtData.name,
           type: jwtData.type,
           id: jwtData._id,
           userId: jwtData.userId,

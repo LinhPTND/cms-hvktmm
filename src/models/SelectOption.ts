@@ -1,3 +1,4 @@
+// @ts-ignore
 import { IconName } from "@/components/Icon.vue";
 
 export type Options = Array<{
