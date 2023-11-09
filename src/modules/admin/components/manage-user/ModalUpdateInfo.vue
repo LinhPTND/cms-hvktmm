@@ -53,6 +53,7 @@
               >
                 <a-date-picker
                   :value="value"
+                  style="width: 100% !important;"
                   @update:value="handleChange"
                   format="DD/MM/YYYY"
                   value-format="YYYY-MM-DD"
@@ -93,6 +94,7 @@
               <form-item
                 name="dateCitizenId"
                 label="Ngày cấp"
+                class="!w-full"
                 v-slot="{ value, handleChange }"
                 :value-transformer="{
                   in: (value) => dayjs(value),
@@ -102,6 +104,7 @@
                 <a-date-picker
                   :value="value"
                   @update:value="handleChange"
+                  style="width: 100% !important;"
                   format="DD/MM/YYYY"
                 />
               </form-item>

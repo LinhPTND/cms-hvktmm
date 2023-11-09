@@ -55,6 +55,7 @@
             }"
           >
             <a-date-picker
+              style="width: 100% !important;"
               :value="value"
               @update:value="handleChange"
               format="DD/MM/YYYY"
@@ -89,13 +90,89 @@
             :rules="[{ required: true, message: 'Bạn phải nhập khóa' }]"
           />
         </a-col>
-
+        <a-col :span="6">
+          <form-item
+            name="citizenId"
+            label="Số căn cước"
+            input="a-input"
+            :rules="[{ required: true, message: 'Bạn phải nhập số căn cước' }]"
+          />
+        </a-col>
+        <a-col :span="6">
+          <form-item
+            name="dateCitizenId"
+            label="Ngày cấp căn cước"
+            v-slot="{ value, handleChange }"
+            :rules="[{ required: true, message: 'Bạn phải nhập ngày cấp căn cước' }]"
+            :value-transformer="{
+              in: (value) => (value ? dayjs(value) : value),
+              out: (value) => dayjs(value).format('YYYY-MM-DD'),
+            }"
+          >
+            <a-date-picker
+              style="width: 100% !important;"
+              :value="value"
+              @update:value="handleChange"
+              format="DD/MM/YYYY"
+              placeholder="DD/MM/YYYY"
+            />
+          </form-item>
+        </a-col>
+        <a-col :span="6">
+          <form-item
+            name="placeCitizenId"
+            label="Nơi cấp căn cước"
+            input="a-input"
+            :rules="[{ required: true, message: 'Bạn phải nhập nơi cấp căn cước' }]"
+          />
+        </a-col>
         <a-col :span="6">
           <form-item
             name="email"
             label="Email"
             input="a-input"
+            :rules="[{ required: true, message: 'Bạn phải nhập email' }]"
             :input-props="{ type: 'email' }"
+          />
+        </a-col>
+        <a-col :span="6">
+          <form-item
+            name="address"
+            label="Địa chỉ"
+            input="a-input"
+            :input-props="{ type: 'a-input' }"
+          />
+        </a-col>
+        <a-col :span="6">
+          <form-item
+            name="hometown"
+            label="Quê quán"
+            input="a-input"
+            :input-props="{ type: 'a-input' }"
+          />
+        </a-col>
+        <a-col :span="6">
+          <form-item
+            name="permanentResidence"
+            label="Địa chỉ thường trú"
+            input="a-input"
+            :input-props="{ type: 'a-input' }"
+          />
+        </a-col>
+        <a-col :span="6">
+          <form-item
+            name="parentName"
+            label="Họ tên bố/mẹ"
+            input="a-input"
+            :input-props="{ type: 'a-input' }"
+          />
+        </a-col>
+        <a-col :span="6">
+          <form-item
+            name="parentPhone"
+            label="Số điện thoại bố/mẹ"
+            input="a-input"
+            :input-props="{ type: 'a-input' }"
           />
         </a-col>
       </a-row>

@@ -56,10 +56,21 @@
           >
             <a-date-picker
               :value="value"
+              style="width: 100% !important;"
               @update:value="handleChange"
               format="DD/MM/YYYY"
               placeholder="DD/MM/YYYY"
             />
+          </form-item>
+        </a-col>
+        <a-col :span="12">
+          <form-item
+            name="address"
+            label="Địa chỉ"
+            v-slot="{ value, handleChange }"
+            :rules="[{ required: true, message: 'Bạn phải nhập địa chỉ' }]"
+          >
+            <a-input :value="value" @update:value="handleChange" />
           </form-item>
         </a-col>
         <a-col :span="12">

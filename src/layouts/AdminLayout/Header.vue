@@ -3,8 +3,7 @@
     <div class="layout-header__left flex items-center gap-3">
       <div class="logo hidden md:block">
         <div class="flex items-center gap-4">
-          <img :src="Assets.Images.Logo" class="h-11" />
-          <div class="title hidden xl:block">Học viện kĩ thuật mật mã</div>
+          <img src="@/assets/images/logo-full.png" class="h-[60px]" />
         </div>
       </div>
       <a-button

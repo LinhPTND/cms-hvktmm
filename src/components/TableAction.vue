@@ -1,5 +1,5 @@
 <template>
-  <a-space>
+  <div class="flex flex-col gap-2">
     <ButtonView
       v-if="detail"
       :only-icon="onlyIcon"
@@ -15,12 +15,13 @@
       @click="$emit('edit', record)"
     />
     <ButtonDelete
-      class="flex items-center justify-center"
+      type="red"
+      class="flex items-center justify-center w-full"
       v-if="showDelete"
       :only-icon="onlyIcon"
       @click="$emit('delete', record)"
     />
-  </a-space>
+  </div>
 </template>
 
 <script setup lang="ts">

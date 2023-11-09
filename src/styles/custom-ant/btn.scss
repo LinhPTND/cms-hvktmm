@@ -12,7 +12,7 @@
   }
 }
 
-.ant-btn-red {
+.ant-btn-red, .ant-btn-dangerous, .btn-destructive {
   background: $red-color;
   &:hover {
     background: $red-color-hover !important;
@@ -25,3 +25,4 @@
     background: $green-color-hover !important;
   }
 }
+

@@ -111,9 +111,7 @@ watch(
 );
 
 const pickApprover = () => {
-  formLetter.value?.validate().then(() => {
-    modalApprover.value = true;
-  });
+  modalApprover.value = true;
 };
 
 const closeModalApprover = () => {
@@ -122,16 +120,8 @@ const closeModalApprover = () => {
 const resetForm = () => {
   formLetter.value?.resetForm();
 };
-
-const submit = (approver: string | undefined) => {
-  closeModalApprover();
-  if (approver) {
-    approverId.value = approver;
-  }
-  formLetter.value?.submit();
-};
-
 const handleFinish = (values: BankLoanRequest) => {
+  console.log(values)
   if (user?.value?.userId) {
     const payload = {
       ...values,
@@ -142,6 +132,17 @@ const handleFinish = (values: BankLoanRequest) => {
     submitConfirmStudying(payload);
   }
 };
+
+const submit = (approver: string | undefined) => {
+  console.log(approver)
+  closeModalApprover();
+  if (approver) {
+    approverId.value = approver;
+  }
+  console.log(222)
+  handleFinish(initialValues.value)
+};
+
 </script>
 
 <style lang="scss">
