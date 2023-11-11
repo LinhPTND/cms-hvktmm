@@ -2,11 +2,16 @@
   <CardContent class="card-notification h-full">
     <h3>Thông báo</h3>
     <div class="container">
-      <NotificaionItem
-        v-for="(item, index) in listNotification"
-        :key="`${item.time}-${index}`"
-        v-bind="item"
-      />
+      <template v-if="listNotification.length">
+        <NotificaionItem
+          v-for="(item, index) in listNotification"
+          :key="`${item.time}-${index}`"
+          v-bind="item"
+        />
+      </template>
+      <div v-else>
+        <span class="opacity-60">Không có thông báo nào</span>
+      </div>
     </div>
   </CardContent>
 </template>
@@ -18,12 +23,13 @@ import NotificaionItem from "@/modules/user/components/CardAccount/NotificaionIt
 import { ref } from "vue";
 
 const listNotification = ref<NotificationItem[]>(
-  [...Array(10)].map(() => {
-    return {
-      time: "22/06/2022",
-      description: "Đơn đăng kí đã được duyệt",
-    };
-  })
+  // [...Array(10)].map(() => {
+  //   return {
+  //     time: "22/06/2022",
+  //     description: "Đơn đăng kí đã được duyệt",
+  //   };
+  // })
+  []
 );
 </script>
 
