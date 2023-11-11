@@ -340,7 +340,7 @@
         </div>
         <div class="content-line">
           Trong thời gian nghỉ học, em xin cam kết sẽ không gây ra hành vi vi
-          phạm pháp luật của Nhà nước và quy định của Học viện. Nếu sai, em xin
+          phạm pháp luật của Nhà nước và quy định của trường. Nếu sai, em xin
           hoàn toàn chịu trách nhiệm. Em xin chân thành cảm ơn.
         </div>
       </Form>

@@ -13,7 +13,7 @@
       <div class="flex items-center">
         <img :src="Assets.Images.Logo" class="h-11 mx-3 my-2" />
         <div class="title text-ellipsis font-bold text-base">
-          Học viện kĩ thuật mật mã
+          Đại học Công Nghệ Giao Thông Vận Tải
         </div>
       </div>
       <Button

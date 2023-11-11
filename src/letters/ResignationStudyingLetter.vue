@@ -268,7 +268,7 @@
         </div>
         <div class="content-line">
           <p class="flex items-baseline flex-wrap text-[13px]">
-            Em viết đơn này xin được thôi học tại Học viện, từ ngày
+            Em viết đơn này xin được thôi học tại trường, từ ngày
             <FormItem
               class="inline-flex px-2"
               name="dateLeave"

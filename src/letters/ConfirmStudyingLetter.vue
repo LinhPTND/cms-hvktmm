@@ -321,7 +321,7 @@
         </div>
         <div class="content-line">
           <div class="mb-2">
-            Trong thời gian học tại Học viện, sinh viên không bị xử phạt vi phạm
+            Trong thời gian học tại trường, sinh viên không bị xử phạt vi phạm
             hành chính trở lên về các hành vi: cờ bạc, nghiện hút, trộm cắp,
             buôn lậu…….
           </div>

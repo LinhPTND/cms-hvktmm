@@ -264,16 +264,16 @@ const emit = defineEmits<{
 
 const dataSource = reactive([
   {
-    unit: "Trung tâm Thư viện (Tầng 1 nhà 14 tầng)",
+    unit: "Trung tâm Thư viện",
   },
   {
-    unit: "Phòng kế hoạch-Tài chính (Tầng 7 nhà 14 tầng)",
+    unit: "Phòng kế hoạch-Tài chính",
   },
   {
-    unit: "Hệ Quản lý sinh viên (Tầng 8 nhà 17 tầng)",
+    unit: "Hệ Quản lý sinh viên",
   },
   {
-    unit: "Phòng đào tạo (Tầng 3 nhà 14 tầng )",
+    unit: "Phòng đào tạo",
   },
 ]);
 
