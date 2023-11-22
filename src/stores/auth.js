@@ -24,8 +24,10 @@ export const useAuth = defineStore({
             this.refreshToken = data.refreshToken;
             if (data.accessToken) {
                 const jwtData = jwtDecode(data.accessToken);
+                console.log(jwtData);
                 this.user = {
                     username: jwtData.username,
+                    name: jwtData.name,
                     type: jwtData.type,
                     id: jwtData._id,
                     userId: jwtData.userId,

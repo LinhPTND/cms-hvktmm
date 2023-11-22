@@ -104,7 +104,7 @@ import TableAction from "@/components/TableAction.vue";
 import useMessage from "@/core/composables/message";
 import useJob, { fnJob } from "@/core/composables/useJob";
 import { useLetterFormComponent } from "@/hooks/userLetterFormComponent";
-import { StatusLetter } from "@/models/Letter";
+import { StatusLetter } from "@/models/custom";
 import { GetCodeRequest, VerifyCodeRequest } from "@/models/Otp";
 import { GetInfoRequest, InfoResponse } from "@/models/User";
 import ModalCheckLetter from "@/modules/user/components/modal/ModalCheckLetter.vue";

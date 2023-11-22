@@ -1,19 +1,20 @@
 <template>
   <a-tooltip placement="top" :title="t('common.detail')" v-if="onlyIcon">
-    <Button v-bind="$attrs">
+    <a-button class="w-full" type="primary" v-bind="$attrs">
       <template #icon>
         <eye-outlined />
       </template>
-    </Button>
+      <span>Xem chi tiết</span>
+    </a-button>
   </a-tooltip>
-  <Button v-bind="$attrs" v-else>
+  <a-button class="w-full" type="primary" v-bind="$attrs" v-else>
     <template #icon>
       <eye-outlined />
     </template>
     <slot v-if="!onlyIcon">
       {{ t("common.detail") }}
     </slot>
-  </Button>
+  </a-button>
 </template>
 
 <script lang="ts" setup>

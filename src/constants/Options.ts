@@ -1,4 +1,4 @@
-import { StatusLetter } from "@/models/Letter";
+import { StatusLetter } from "@/models/custom";
 import { Options } from "../models/SelectOption";
 
 export const Genders: Options = [

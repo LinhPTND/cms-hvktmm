@@ -7,6 +7,8 @@ interface AuthStoreState {
         type: "user" | "admin" | "teacher" | null;
         id: string;
         userId: string;
+        name?: string;
+        number?: string;
     };
 }
 export declare const useAuth: import("pinia").StoreDefinition<"auth", AuthStoreState, {
@@ -19,6 +21,8 @@ export declare const useAuth: import("pinia").StoreDefinition<"auth", AuthStoreS
             type: "user" | "admin" | "teacher" | null;
             id: string;
             userId: string;
+            name?: string | undefined;
+            number?: string | undefined;
         } | undefined;
     } & {}): boolean;
 }, {

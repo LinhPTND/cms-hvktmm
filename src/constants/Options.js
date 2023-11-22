@@ -1,4 +1,4 @@
-import { StatusLetter } from "@/models/Letter";
+import { StatusLetter } from "@/models/custom";
 import "../models/SelectOption";
 export const Genders = [
     { label: "Nam", value: "nam" },
@@ -8,6 +8,7 @@ export const Majors = [
     { label: "An toàn thông tin", value: "An toàn thông tin" },
     { label: "Công nghệ thông tin", value: "Công nghệ thông tin" },
     { label: "Điện tử viễn thông", value: "Điện tử viễn thông" },
+    { label: "Nhân viên tư vấn bán hàng", value: "Nhân viên tư vấn bán hàng" },
 ];
 export const TuitionType = [
     { label: "Không miễn giảm", value: "Không miễn giảm" },

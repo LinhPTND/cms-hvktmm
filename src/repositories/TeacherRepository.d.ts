@@ -5,7 +5,8 @@ import { StatusLetter } from "./../models/Letter";
 declare class TeacherRepository extends Repository {
     constructor();
     getInfo(id: string): import("rxjs").Observable<import("axios").AxiosResponse<UpdateInfoResponse, any>>;
-    addTeacher(data: UpdateInfoRequest): import("rxjs").Observable<import("axios").AxiosResponse<UpdateInfoResponse, any>>;
+    addTeacher(data: UpdateInfoRequest | UpdateInfoRequest[]): import("rxjs").Observable<import("axios").AxiosResponse<UpdateInfoResponse, any>>;
+    addListTeacher(data: UpdateInfoRequest[]): import("rxjs").Observable<import("axios").AxiosResponse<any, any>>;
     updateInfo(id: string, data: UpdateInfoRequest): import("rxjs").Observable<import("axios").AxiosResponse<UpdateInfoResponse, any>>;
     changePassword(data: ChangePasswordRequest): import("rxjs").Observable<import("axios").AxiosResponse<ChangePasswordResponse, any>>;
     getListTeacher(params: ListTeacherRequest): import("rxjs").Observable<import("axios").AxiosResponse<ListTeacherResponse, any>>;

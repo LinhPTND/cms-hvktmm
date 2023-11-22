@@ -68,7 +68,6 @@ const { login } = useAuth();
 const { run: loginAPI } = fnJob({
   api: (payload: LoginRequest) => AuthRepository.login(payload),
   fnSuccess: ({ data }) => {
-    console.log(data, "dataLogin");
     if (data.success) {
       login({
         accessToken: data.data.accessToken,
@@ -81,7 +80,7 @@ const { run: loginAPI } = fnJob({
       if (typeAccount === "admin") {
         router.push(AdminRoutePaths.Index);
       } else if (typeAccount === "teacher") {
-        router.push(TeacherRoutePaths.Index);
+        router.push(TeacherRoutePaths.Info);
       } else {
         router.push(UserRoutePaths.Index);
       }

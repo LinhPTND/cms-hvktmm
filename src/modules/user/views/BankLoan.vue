@@ -121,10 +121,9 @@ const resetForm = () => {
   formLetter.value?.resetForm();
 };
 const handleFinish = (values: BankLoanRequest) => {
-  console.log(values)
   if (user?.value?.userId) {
     const payload = {
-      ...values,
+      ...formLetter.value?.values,
       approved: approverId.value,
       user: user?.value?.userId,
       status: StatusLetter.PENDING,
@@ -134,14 +133,13 @@ const handleFinish = (values: BankLoanRequest) => {
 };
 
 const submit = (approver: string | undefined) => {
-  console.log(approver)
   closeModalApprover();
   if (approver) {
     approverId.value = approver;
   }
-  console.log(222)
   handleFinish(initialValues.value)
 };
+
 
 </script>
 

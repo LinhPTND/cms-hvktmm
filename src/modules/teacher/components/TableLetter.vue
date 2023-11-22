@@ -61,7 +61,7 @@
       <a-table-column title="Trạng thái" data-index="status">
         <template #default="{ record }">
           <a-tag
-            class="w-[70px]"
+            class="min-w-[70px]"
             :key="record.status"
             :color="
               record.status === StatusLetter.PENDING
@@ -79,9 +79,8 @@
         <template #default="{ record }">
           <TableAction
             :record="record"
-            :detail="
-              record.status === StatusLetter.SUCCESS ||
-              record.status === StatusLetter.REJECT
+            :detail=" [StatusLetter.CONFIRM,StatusLetter.SUCCESS,StatusLetter.RECONFIRM, StatusLetter.REJECT, StatusLetter.APPROVED].includes(record.status)
+
             "
             :edit="record.status === StatusLetter.PENDING"
             only-icon
@@ -102,7 +101,6 @@ import TableAction from "@/components/TableAction.vue";
 import useMessage from "@/core/composables/message";
 import useJob, { fnJob } from "@/core/composables/useJob";
 import { useLetterFormComponent } from "@/hooks/userLetterFormComponent";
-import { StatusLetter } from "@/models/Letter";
 import { GetCodeRequest, VerifyCodeRequest } from "@/models/Otp";
 import { GetInfoResponse, InfoResponse } from "@/models/Teacher";
 import ModalCheckLetter from "@/modules/teacher/components/modal/ModalCheckLetter.vue";
@@ -113,6 +111,17 @@ import { notification } from "ant-design-vue";
 import dayjs from "dayjs";
 import { catchError, map, of } from "rxjs";
 import { reactive, ref, unref } from "vue";
+import { StatusLetter } from "@/models/custom";
+
+// enum StatusLetter {
+//   PENDING = "pending",
+//   CONFIRM = "confirm",
+//   RECONFIRM = "re_confirm",
+//   SUCCESS = "success",
+//   APPROVED = "approved",
+//   REJECT = "reject",
+// }
+
 
 const props = withDefaults(
   defineProps<{
@@ -262,18 +271,28 @@ const { run: verifyCodeApi } = useJob(
 );
 
 const handleEdit = (record: any) => {
-  modalOtp.visible = true;
   recordLetter.value = {
     data: record,
     readOnly: true,
   };
+  openModalCheckLetter({
+    data: recordLetter.value.data,
+    visible: true,
+    readOnly: recordLetter.value.readOnly,
+    status: recordLetter.value?.data?.status,
+  });
 };
 const handleDetail = (record: any) => {
-  modalOtp.visible = true;
   recordLetter.value = {
     data: record,
     readOnly: true,
   };
+  openModalCheckLetter({
+    data: recordLetter.value.data,
+    visible: true,
+    readOnly: recordLetter.value.readOnly,
+    status: recordLetter.value?.data?.status,
+  });
 };
 
 const closeModalOtp = () => {

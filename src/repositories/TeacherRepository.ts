@@ -24,9 +24,17 @@ class TeacherRepository extends Repository {
     });
   }
 
-  addTeacher(data: UpdateInfoRequest) {
+  addTeacher(data: UpdateInfoRequest | UpdateInfoRequest[]) {
     return this.request<UpdateInfoResponse>({
       url: "/teachers",
+      method: "POST",
+      data,
+    });
+  }
+
+  addListTeacher(data: UpdateInfoRequest[]) {
+    return this.request<any>({
+      url: "/create-list-teachers",
       method: "POST",
       data,
     });

@@ -10,7 +10,7 @@
         <div>{{ titleLetter }}</div>
         <div>
           <a-tag
-            class="w-[70px]"
+            class="min-w-[70px]"
             :key="data.status"
             :color="
               data.status === StatusLetter.PENDING
@@ -31,13 +31,16 @@
         <Button
           class="mr-2"
           :btn-type="'primary'"
-          @click="submit(StatusLetter.SUCCESS)"
+          @click="submit(StatusLetter.CONFIRM)"
           >Duyệt</Button
         >
         <Button :btn-type="'destructive'" @click="submit(StatusLetter.REJECT)"
           >Từ chối</Button
         >
       </div>
+      <a-button v-if="data.status === StatusLetter.APPROVED" type="green" @click="submit(StatusLetter.SUCCESS)">Xác nhận đã thu tiền</a-button>
+      <a-button v-if="data.status === StatusLetter.RECONFIRM" type="primary" @click="submit(StatusLetter.CONFIRM)">Gửi lại đợn</a-button>
+
     </template>
 
     <div class="wrap-letter">
@@ -65,7 +68,9 @@ import { useLoading } from "@/core/loading";
 import { useLetterFormComponent } from "@/hooks/userLetterFormComponent";
 import { ConfirmStudying } from "@/models/ConfirmStudying";
 import { FormExposed } from "@/models/Form";
-import { StatusLetter, TypeLetter } from "@/models/Letter";
+import { TypeLetter } from "@/models/Letter";
+import { StatusLetter } from "@/models/custom";
+
 import { notification } from "ant-design-vue";
 import { ModalProps } from "ant-design-vue/lib/modal/Modal";
 import dayjs from "dayjs";

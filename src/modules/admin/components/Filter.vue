@@ -1,39 +1,8 @@
 <template>
   <div class="filter">
     <Form layout="vertical" @finish="handleFinish">
-      <FormItem name="name" label="Họ tên sinh viên" input="a-input" />
+      <FormItem name="name" label="Họ tên cán bộ" input="a-input" />
       <a-row :gutter="[16, 0]">
-        <a-col :span="12">
-          <FormItem name="msv" label="Mã SV" input="a-input" />
-        </a-col>
-        <a-col :span="12">
-          <FormItem
-            name="letterStatus"
-            label="Trạng thái đơn"
-            input="a-select"
-            :input-props="{ options: StatusLetterOptions }"
-          />
-        </a-col>
-      </a-row>
-      <a-row :gutter="[16, 0]">
-        <a-col :span="12">
-          <FormItem
-            name="major"
-            label="Chuyên nghành"
-            input="a-select"
-            :input-props="{ options: Majors }"
-          />
-        </a-col>
-        <a-col :span="12">
-          <FormItem
-            name="class"
-            label="Lớp"
-            input="a-input"
-            :input-props="{
-              disabled: !formState.majors,
-            }"
-          />
-        </a-col>
       </a-row>
       <div class="flex mt-4 justify-center">
         <FormItem>
@@ -52,7 +21,7 @@ import Button from "@/components/button/Button.vue";
 import Form from "@/components/Form.vue";
 import FormItem from "@/components/FormItem.vue";
 import { Majors, StatusLetterOptions } from "@/constants/Options";
-import { StatusLetter } from "@/models/Letter";
+import { StatusLetter } from "@/models/custom";
 import { reactive, UnwrapRef } from "vue";
 
 interface FormState {

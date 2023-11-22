@@ -14,14 +14,14 @@
 </template>
 
 <script setup lang="ts">
-import { fnJob } from "@/core/composables/useJob";
-import { StatusLetter } from "@/models/Letter";
+import {fnJob} from "@/core/composables/useJob";
+import {StatusLetter} from "@/models/custom";
 import TableLetter from "@/modules/teacher/components/TableLetter.vue";
 import TeacherRepository from "@/repositories/TeacherRepository";
-import { useAuth } from "@/stores/auth";
-import { getTableLetter } from "@/utilities/resolveLetter";
-import { ref, watch } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import {useAuth} from "@/stores/auth";
+import {getTableLetter} from "@/utilities/resolveLetter";
+import {ref, watch} from "vue";
+import {useRoute, useRouter} from "vue-router";
 import Filter from "../components/Filter.vue";
 
 export interface ListRequest {
@@ -41,8 +41,7 @@ const { run: getAllLetter } = fnJob({
   api: (id: string, payload: ListRequest) =>
     TeacherRepository.getAllLetterApply(id, payload),
   fnSuccess: ({ data }) => {
-    const list = getTableLetter(data.data);
-    dataLetters.value = list;
+    dataLetters.value = getTableLetter(data.data);
   },
   options: {
     showLoading: true,

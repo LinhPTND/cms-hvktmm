@@ -43,6 +43,7 @@ const tabs = ref([
   // { label: "Quản lý đơn từ", link: "AdminLetter" },
   { label: "Quản lý giảng viên", link: "ManageTeacher" },
   { label: "Quản lý sinh viên", link: "ManageUser" },
+  { label: "Quản lý đơn từ", link: "AdminLetter" },
 ]);
 
 const router = useRouter();

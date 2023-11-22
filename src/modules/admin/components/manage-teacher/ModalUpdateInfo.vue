@@ -53,6 +53,7 @@
             }"
           >
             <a-date-picker
+              class="!w-full"
               :value="value"
               @update:value="handleChange"
               format="DD/MM/YYYY"
@@ -67,6 +68,13 @@
           <form-item
             name="address"
             label="Địa chỉ thường trú"
+            input="a-input"
+          />
+        </a-col>
+        <a-col :span="12">
+          <form-item
+            name="email"
+            label="Email"
             input="a-input"
           />
         </a-col>

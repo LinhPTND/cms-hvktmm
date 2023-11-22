@@ -20,6 +20,13 @@ class TeacherRepository extends Repository {
             data,
         });
     }
+    addListTeacher(data) {
+        return this.request({
+            url: "/create-list-teachers",
+            method: "POST",
+            data,
+        });
+    }
     updateInfo(id, data) {
         return this.request({
             url: `/teachers/${id}`,

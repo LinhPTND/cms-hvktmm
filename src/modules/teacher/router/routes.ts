@@ -5,6 +5,7 @@ import UserRoutePaths from "@/modules/user/router/paths";
 import { useAuth } from "@/stores/auth";
 import { RouteRecordRaw } from "vue-router";
 
+
 const route: RouteRecordRaw = {
   path: TeacherRoutePaths.Index,
   component: () => import("@/layouts/TeacherLayout/Index.vue"),
