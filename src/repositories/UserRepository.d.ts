@@ -4,6 +4,7 @@ import { CreateUserRequest } from "./../models/User";
 declare class UserRepository extends Repository {
     constructor();
     addUser(payload: CreateUserRequest): import("rxjs").Observable<import("axios").AxiosResponse<CreateUserResponse, any>>;
+    addListUser(data: CreateUserRequest[]): import("rxjs").Observable<import("axios").AxiosResponse<any, any>>;
     getInfo(msv: string): import("rxjs").Observable<import("axios").AxiosResponse<GetInfoRequest, any>>;
     updateInfo(msv: string, data: UpdateInfoRequest): import("rxjs").Observable<import("axios").AxiosResponse<UpdateInfoResponse, any>>;
     deleteUser(msv: string): import("rxjs").Observable<import("axios").AxiosResponse<DeleteRequest, any>>;

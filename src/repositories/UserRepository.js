@@ -13,6 +13,13 @@ class UserRepository extends Repository {
             data: payload,
         });
     }
+    addListUser(data) {
+        return this.request({
+            url: "/create-list-user",
+            method: "POST",
+            data,
+        });
+    }
     getInfo(msv) {
         return this.request({
             url: `/user/${msv}`,

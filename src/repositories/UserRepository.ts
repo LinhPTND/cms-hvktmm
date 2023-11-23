@@ -27,6 +27,14 @@ class UserRepository extends Repository {
     });
   }
 
+  addListUser(data: CreateUserRequest[]) {
+    return this.request<any>({
+      url: "/create-list-user",
+      method: "POST",
+      data,
+    });
+  }
+
   getInfo(msv: string) {
     return this.request<GetInfoRequest>({
       url: `/user/${msv}`,

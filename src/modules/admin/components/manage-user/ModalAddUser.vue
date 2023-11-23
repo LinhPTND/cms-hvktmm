@@ -8,7 +8,7 @@
     width="900px"
     :footer="null"
   >
-    <Form layout="vertical" @finish="handleFinish">
+    <Form  :disabled="dataJson.length > 0" layout="vertical" @finish="handleFinish">
       <a-row :gutter="24">
         <a-col :span="6">
           <form-item
@@ -176,8 +176,13 @@
           />
         </a-col>
       </a-row>
+      <div class="flex flex-col gap-3 py-3">
+        <p>Nhập thông tin bằng file:</p>
+        <input id="fileInput" @change="handleFile" type="file" placeholder="Tải file excel" accept=".xlsx, .xls" class="cursor-pointer !w-fit"/>
+      </div>
       <form-item hide-text-error>
         <a-button
+          v-if="dataJson.length === 0"
           class="w-full font-semibold mt-2"
           type="primary"
           html-type="submit"
@@ -186,6 +191,14 @@
         </a-button>
       </form-item>
     </Form>
+    <a-button
+      v-if="dataJson.length > 0"
+      class="w-full font-semibold"
+      type="primary"
+      @click="handleAddFromFile"
+    >
+      Thêm
+    </a-button>
   </a-modal>
 </template>
 
@@ -198,6 +211,10 @@ import { CreateUserRequest } from "@/models/User";
 import UserRepository from "@/repositories/UserRepository";
 import { notification } from "ant-design-vue";
 import dayjs from "dayjs";
+import * as XLSX from "xlsx";
+import {ref} from "vue";
+import {UpdateInfoRequest} from "@/models/Teacher";
+import TeacherRepository from "@/repositories/TeacherRepository";
 
 const props = defineProps<{
   visible: boolean;
@@ -208,9 +225,10 @@ const props = defineProps<{
 const emit = defineEmits<{
   (e: "finish"): void;
 }>();
+const dataJson = ref<CreateUserRequest[]>([])
 
 const { run: createUserAPI } = fnJob({
-  api: (payload: CreateUserRequest) => UserRepository.addUser(payload),
+  api: (payload: CreateUserRequest | CreateUserRequest[] ) => Array.isArray(payload) ? UserRepository.addListUser(payload) :   UserRepository.addUser(payload),
   fnSuccess: ({ data }) => {
     props.handleOk();
     notification.success({
@@ -231,6 +249,37 @@ const { run: createUserAPI } = fnJob({
 const handleFinish = (values: CreateUserRequest) => {
   createUserAPI(values);
 };
+
+const handleFile = (event:any) => {
+  try {
+    const file = event.target.files?.[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        try {
+          const data = e.target?.result;
+          const workbook = XLSX.read(data, { type: 'binary' });
+          const firstSheetName = workbook.SheetNames[0];
+          const worksheet = workbook.Sheets[firstSheetName];
+          dataJson.value = XLSX.utils.sheet_to_json(worksheet, { blankrows: true, defval: null });
+          console.log(dataJson.value)
+        } catch (error) {
+          console.error('Error processing Excel file:', error);
+        }
+      };
+
+      reader.readAsBinaryString(file);
+    }
+    dataJson.value = []
+  } catch (error) {
+    console.error('Error handling file:', error);
+  }
+};
+
+const handleAddFromFile =  () => {
+  createUserAPI(dataJson.value)
+}
 </script>
 
 <style lang="scss" scoped></style>
