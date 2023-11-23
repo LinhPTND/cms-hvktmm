@@ -186,6 +186,7 @@ const handleFile = (event:any) => {
           const firstSheetName = workbook.SheetNames[0];
           const worksheet = workbook.Sheets[firstSheetName];
           dataJson.value = XLSX.utils.sheet_to_json(worksheet, { blankrows: true, defval: null });
+          console.log(dataJson.value)
         } catch (error) {
           console.error('Error processing Excel file:', error);
         }
