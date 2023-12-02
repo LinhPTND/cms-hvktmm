@@ -35,6 +35,14 @@ class UserRepository extends Repository {
             data: data,
         });
     }
+    depositUser(msv, data) {
+        return this.request({
+            url: `/users/balance/${msv}`,
+            method: "put",
+            showLoading: true,
+            data: data,
+        });
+    }
     deleteUser(msv) {
         return this.request({
             url: `/users/${msv}`,

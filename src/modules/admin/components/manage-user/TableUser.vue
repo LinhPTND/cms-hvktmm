@@ -91,6 +91,7 @@
         />
         <!-- detail -->
         <!-- @detail="$emit('view', $event)" -->
+        <DepositUser :data-user="record"></DepositUser>
       </a-table-column>
     </a-table>
     <ModalUpdateInfo
@@ -113,7 +114,7 @@ import { notification } from "ant-design-vue";
 import dayjs from "dayjs";
 import { ref, watch } from "vue";
 import ModalUpdateInfo from "./ModalUpdateInfo.vue";
-
+import DepositUser from "@/modules/admin/components/modal/DepositUser.vue";
 const props = withDefaults(
   defineProps<{
     listData: InfoResponse[];

@@ -7,6 +7,7 @@ declare class UserRepository extends Repository {
     addListUser(data: CreateUserRequest[]): import("rxjs").Observable<import("axios").AxiosResponse<any, any>>;
     getInfo(msv: string): import("rxjs").Observable<import("axios").AxiosResponse<GetInfoRequest, any>>;
     updateInfo(msv: string, data: UpdateInfoRequest): import("rxjs").Observable<import("axios").AxiosResponse<UpdateInfoResponse, any>>;
+    depositUser(msv: string, data: any): import("rxjs").Observable<import("axios").AxiosResponse<UpdateInfoResponse, any>>;
     deleteUser(msv: string): import("rxjs").Observable<import("axios").AxiosResponse<DeleteRequest, any>>;
     changePassword(data: ChangePasswordRequest): import("rxjs").Observable<import("axios").AxiosResponse<ChangePasswordResponse, any>>;
     getListUser(params: ListUserRequest): import("rxjs").Observable<import("axios").AxiosResponse<ListUserResponse, any>>;
