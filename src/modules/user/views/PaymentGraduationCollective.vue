@@ -42,6 +42,7 @@ import { storeToRefs } from "pinia";
 import { catchError, map, of } from "rxjs";
 import { onBeforeMount, ref, watch } from "vue";
 import { useRouter } from "vue-router";
+import {MIN_PAYMENT} from "@/utilities/const";
 
 const formLetter = ref<FormService>();
 const router = useRouter();
@@ -132,32 +133,37 @@ const submit = (approver: string | undefined) => {
 };
 
 const handleFinish = (values: any) => {
-  if (user?.value?.userId) {
-    const payload = {
-      ...values,
-      msv: user?.value?.username,
-      libraryCenter: {
-        content: values.libraryCenterContent,
-        signature: values.libraryCenterSignature,
-      },
-      financial: {
-        content: values.financialContent,
-        signature: values.financialSignature,
-      },
-      studentManagementSystem: {
-        content: values.studentManagementSystemContent,
-        signature: values.studentManagementSystemSignature,
-      },
-      trainingDepartment: {
-        content: values.trainingDepartmentContent,
-        signature: values.trainingDepartmentSignature,
-      },
-      approved: approverId.value,
-      user: user?.value?.userId,
-      status: StatusLetter.PENDING,
-    };
-    submitConfirmStudying(payload);
+  if(infoUser?.value?.balance && infoUser?.value?.balance >= MIN_PAYMENT) {
+    if (user?.value?.userId) {
+      const payload = {
+        ...values,
+        msv: user?.value?.username,
+        libraryCenter: {
+          content: values.libraryCenterContent,
+          signature: values.libraryCenterSignature,
+        },
+        financial: {
+          content: values.financialContent,
+          signature: values.financialSignature,
+        },
+        studentManagementSystem: {
+          content: values.studentManagementSystemContent,
+          signature: values.studentManagementSystemSignature,
+        },
+        trainingDepartment: {
+          content: values.trainingDepartmentContent,
+          signature: values.trainingDepartmentSignature,
+        },
+        approved: approverId.value,
+        user: user?.value?.userId,
+        status: StatusLetter.PENDING,
+      };
+      submitConfirmStudying(payload);
+    }
+  } else {
+    notification.error({message: 'Số dư không đủ'})
   }
+
 };
 </script>
 

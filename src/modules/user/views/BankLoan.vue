@@ -134,7 +134,6 @@ const handleFinish = (values: BankLoanRequest) => {
 };
 
 const submit = (approver: string | undefined) => {
-  console.log(infoUser?.value?.balance)
   if(infoUser?.value?.balance && infoUser?.value?.balance >= MIN_PAYMENT) {
     closeModalApprover();
     if (approver) {

@@ -44,6 +44,7 @@ import { storeToRefs } from "pinia";
 import { catchError, map, of } from "rxjs";
 import { onBeforeMount, ref, watch } from "vue";
 import { useRouter } from "vue-router";
+import {MIN_PAYMENT} from "@/utilities/const";
 
 const formLetter = ref<FormService>();
 const router = useRouter();
@@ -134,14 +135,18 @@ const submit = (approver: string | undefined) => {
 };
 
 const handleFinish = (values: LeaveAbsenceLessRequest) => {
-  if (user?.value?.userId) {
-    const payload = {
-      ...values,
-      approved: approverId.value,
-      user: user?.value?.userId,
-      status: StatusLetter.PENDING,
-    };
-    submitConfirmStudying(payload);
+  if(infoUser?.value?.balance && infoUser?.value?.balance >= MIN_PAYMENT) {
+    if (user?.value?.userId) {
+      const payload = {
+        ...values,
+        approved: approverId.value,
+        user: user?.value?.userId,
+        status: StatusLetter.PENDING,
+      };
+      submitConfirmStudying(payload);
+    }
+  } else {
+    notification.error({message: 'Số dư không đủ'})
   }
 };
 </script>

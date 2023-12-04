@@ -44,6 +44,7 @@ import { useRouter } from "vue-router";
 import ReservationAcademicLetter from "@/letters/ReservationAcademicLetter.vue";
 import ReservationAcademicRepository from "@/repositories/ReservationAcademicRepository";
 import { ReservationAcademicRequest } from "@/models/ReservationAcademic";
+import {MIN_PAYMENT} from "@/utilities/const";
 
 const formLetter = ref<FormService>();
 const router = useRouter();
@@ -134,14 +135,19 @@ const submit = (approver: string | undefined) => {
 };
 
 const handleFinish = (values: ReservationAcademicRequest) => {
-  if (user?.value?.userId) {
-    const payload = {
-      ...values,
-      approved: approverId.value,
-      user: user?.value?.userId,
-      status: StatusLetter.PENDING,
-    };
-    submitConfirmStudying(payload);
+
+  if(infoUser?.value?.balance && infoUser?.value?.balance >= MIN_PAYMENT) {
+    if (user?.value?.userId) {
+      const payload = {
+        ...values,
+        approved: approverId.value,
+        user: user?.value?.userId,
+        status: StatusLetter.PENDING,
+      };
+      submitConfirmStudying(payload);
+    }
+  } else {
+    notification.error({message: 'Số dư không đủ'})
   }
 };
 </script>

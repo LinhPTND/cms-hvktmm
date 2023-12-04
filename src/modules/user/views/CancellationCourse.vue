@@ -133,7 +133,7 @@ const submit = (approver: string | undefined) => {
 };
 
 const handleFinish = (values: CancelCourseRequest) => {
-  if(user?.value?.balance && user?.value?.balance >= MIN_PAYMENT) {
+  if(infoUser?.value?.balance && infoUser?.value?.balance >= MIN_PAYMENT) {
     if (user?.value?.userId) {
       const payload = {
         ...values,
