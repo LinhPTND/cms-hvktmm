@@ -1,6 +1,6 @@
 export const pathMatched = (location: string, path: string, exact = false) => {
-  const locationParts = location.split("/");
-  const pathParts = path.split("/");
+  const locationParts = location?.split("/");
+  const pathParts = path?.split("/");
 
   if (
     pathParts.length > locationParts.length ||

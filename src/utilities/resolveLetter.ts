@@ -114,6 +114,6 @@ export const randomColor = (phone: string) => {
 };
 
 export const getNameFace = (name: string) => {
-  const arr = name.split(" ");
-  return arr[arr.length - 1].charAt(0);
+  const arr =  name?.split(" ");
+  return arr[arr?.length - 1] ?  arr[arr?.length - 1]?.charAt(0) : 'U';
 };

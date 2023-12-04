@@ -20,7 +20,7 @@
                 : 'volcano'
             "
           >
-            {{ data.status.toString().toUpperCase() }}
+            {{ data.status?.toString().toUpperCase() }}
           </a-tag>
         </div>
       </div>

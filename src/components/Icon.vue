@@ -440,7 +440,7 @@ const globIcons = import.meta.glob("/src/assets/icons/*.svg");
 
 const Icons: { [key in IconName]: FunctionalComponent } = mapValues(
   mapKeys(globIcons, (_, key) => {
-    const iconName = key.split("/").pop()?.split(".")[0];
+    const iconName = key?.split("/").pop()?.split(".")[0];
     return iconName ? iconName[0].toLowerCase() + iconName.slice(1) : "";
   }),
   (svgLoader) => defineAsyncComponent(svgLoader)

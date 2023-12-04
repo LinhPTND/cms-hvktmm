@@ -103,6 +103,6 @@ export const randomColor = (phone) => {
     return "#" + Math.floor(parseFloat(phoneSc) * 16777215).toString(16);
 };
 export const getNameFace = (name) => {
-    const arr = name.split(" ");
-    return arr[arr.length - 1].charAt(0);
+    const arr = name?.split(" ");
+    return arr[arr?.length - 1] ? arr[arr?.length - 1]?.charAt(0) : '';
 };
