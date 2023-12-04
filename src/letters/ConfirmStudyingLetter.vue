@@ -285,7 +285,7 @@
               name="msv"
               :rules="[
                 { required: true, message: 'Vui lòng nhập Mã sinh viên' },
-                { max: 10 },
+                { max: 11 },
               ]"
               input="a-input"
               :input-props="{
