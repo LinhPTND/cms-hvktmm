@@ -36,6 +36,7 @@ export interface InfoResponse {
   parentPhone?: string;
   createdAt: string;
   updatedAt: string;
+  balance: number | null;
   __v: number;
 }
 

@@ -9,6 +9,7 @@ interface AuthStoreState {
         userId: string;
         name?: string;
         number?: string;
+        balance?: number;
     };
 }
 export declare const useAuth: import("pinia").StoreDefinition<"auth", AuthStoreState, {
@@ -23,6 +24,7 @@ export declare const useAuth: import("pinia").StoreDefinition<"auth", AuthStoreS
             userId: string;
             name?: string | undefined;
             number?: string | undefined;
+            balance?: number | undefined;
         } | undefined;
     } & {}): boolean;
 }, {

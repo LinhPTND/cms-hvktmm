@@ -5,11 +5,17 @@
         <div class="w-[66px] h-[66px] mr-[16px]">
           <img :src="Assets.Images.Avatar.boy" alt="" />
         </div>
-        <div class="info-basic">
-          <h3 class="name mb-2 capitalize">{{ userInfo?.name }}</h3>
-          <div class="text mb-1">{{ userInfo?.msv }}</div>
+        <div>
+          <div class="info-basic">
+            <h3 class="name mb-2 capitalize">{{ userInfo?.name }}</h3>
+            <div class="text mb-1">{{ userInfo?.msv }}</div>
+          </div>
+          <div>
+            <span>Số dư: <span class="font-bold text-lg">{{ userInfo?.balance}} VND</span></span>
+          </div>
         </div>
       </div>
+
       <div class="info-button flex gap-4">
         <a-button class="font-semibold" type="primary" @click="showModalChange">
           Đổi mật khẩu

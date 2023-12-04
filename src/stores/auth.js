@@ -11,6 +11,7 @@ export const useAuth = defineStore({
             type: null,
             id: "",
             userId: "",
+            balance: 0
         },
     }),
     getters: {
@@ -24,13 +25,14 @@ export const useAuth = defineStore({
             this.refreshToken = data.refreshToken;
             if (data.accessToken) {
                 const jwtData = jwtDecode(data.accessToken);
-                console.log(jwtData);
+                console.log(jwtData, 111);
                 this.user = {
                     username: jwtData.username,
                     name: jwtData.name,
                     type: jwtData.type,
                     id: jwtData._id,
                     userId: jwtData.userId,
+                    balance: jwtData.balance
                 };
                 this.expiresIn = jwtData.exp;
             }

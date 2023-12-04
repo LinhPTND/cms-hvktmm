@@ -12,6 +12,7 @@ export const useUser = defineStore({
             gender: "",
             majors: undefined,
             msv: "",
+            balance: null
         },
     }),
     actions: {

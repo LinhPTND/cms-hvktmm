@@ -12,6 +12,7 @@ interface AuthStoreState {
     userId: string;
     name?: string;
     number?: string;
+    balance?: number
   };
 }
 
@@ -22,6 +23,7 @@ interface JwtAccessToken {
   username: string;
   userId: string;
   name: string;
+  balance: number | undefined
   _id: string;
 }
 
@@ -36,6 +38,7 @@ export const useAuth = defineStore({
       type: null,
       id: "",
       userId: "",
+      balance: 0
     },
   }),
   getters: {
@@ -47,16 +50,16 @@ export const useAuth = defineStore({
     login(data: AuthStoreState) {
       this.accessToken = data.accessToken;
       this.refreshToken = data.refreshToken;
-
       if (data.accessToken) {
         const jwtData: JwtAccessToken = jwtDecode(data.accessToken) as any;
-        console.log(jwtData)
+        console.log(jwtData, 111)
         this.user = {
           username: jwtData.username,
           name: jwtData.name,
           type: jwtData.type,
           id: jwtData._id,
           userId: jwtData.userId,
+          balance: jwtData.balance
         };
         this.expiresIn = jwtData.exp;
       }
