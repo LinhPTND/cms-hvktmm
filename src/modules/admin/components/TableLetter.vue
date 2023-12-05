@@ -23,16 +23,16 @@
       <a-table-column title="Người gửi đơn">
         <template #default="{ record }">
           <Avatar
-            :name="record.user.name"
-            :name-face="getNameFace(record.user.name)"
-            :color="randomColor(record.user.phone)"
+            :name="record.user?.name || record.name"
+            :name-face="getNameFace(record.user?.name || record.name)"
+            :color="randomColor(record.user?.phone || record.phone)"
             size="small"
           />
         </template>
       </a-table-column>
       <a-table-column title="Số điện thoại" align="center">
         <template #default="{ record }">
-          {{ record.user.phone }}
+          {{ record.user?.phone || record?.phone }}
         </template>
       </a-table-column>
       <a-table-column title="Ngày gửi" data-index="createdAt">
