@@ -8,7 +8,7 @@
           @click="showModal"
         >
           <user-add-outlined />
-          Thêm giảng viên
+          Thêm chuyên viên
         </a-button>
         <Filter @change="handleChangeFilter" :filter-data="filterData" />
       </a-col>

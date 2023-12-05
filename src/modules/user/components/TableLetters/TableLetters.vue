@@ -221,13 +221,13 @@ const { run: getCodeApi } = useJob(
           message.success("Mã OTP đã gửi đến gmail của bạn");
         } else {
           message.error(
-            "Xác thực không thành công đơn của bạn. Vui lòng liên hệ giảng viên để được hỗ trợ"
+            "Xác thực không thành công đơn của bạn. Vui lòng liên hệ chuyên viên để được hỗ trợ"
           );
         }
       }),
       catchError((err) => {
         message.error(
-          "Xác thực không thành công đơn của bạn. Vui lòng liên hệ giảng viên để được hỗ trợ"
+          "Xác thực không thành công đơn của bạn. Vui lòng liên hệ chuyên viên để được hỗ trợ"
         );
         return of(err);
       })
@@ -262,13 +262,13 @@ const { run: verifyCodeApi } = useJob(
             }
           } else {
             message.error(
-              "Xác thực không thành công đơn của bạn. Vui lòng liên hệ giảng viên để được hỗ trợ"
+              "Xác thực không thành công đơn của bạn. Vui lòng liên hệ chuyên viên để được hỗ trợ"
             );
           }
         }),
         catchError((err) => {
           message.error(
-            "Xác thực không thành công đơn của bạn. Vui lòng liên hệ giảng viên để được hỗ trợ"
+            "Xác thực không thành công đơn của bạn. Vui lòng liên hệ chuyên viên để được hỗ trợ"
           );
           return of(err);
         })

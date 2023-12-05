@@ -177,6 +177,14 @@
                   required: true,
                   message: 'Vui lòng nhập khóa học',
                 },
+                {
+                  min: 2,
+                  message: 'Khóa không đúng định dạng',
+                },
+                {
+                  max: 2,
+                  message: 'Khóa không đúng định dạng',
+                },
               ]"
               :value-transformer="{
                 in: (value: any) => value ? [dayjs(value[0]), dayjs(value[1])] : value,
@@ -203,7 +211,7 @@
             <FormItem
               class="inline-flex px-2"
               name="class"
-              :rules="[{ required: true, message: 'Vui lòng nhập lớp' }]"
+              :rules="[{ required: true, message: 'Vui lòng nhập lớp' }, { min: 8, message: 'Lớp không đúng định dạng' }, { max: 8, message: 'Lớp không đúng định dạng' }]"
               input="a-input"
               :input-props="{
                 disabled: readOnly,

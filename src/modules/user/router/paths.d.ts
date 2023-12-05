@@ -11,7 +11,7 @@ declare const UserRoutePaths: {
     readonly LeaveAbsenceLessWeek: "/user/letter/leave-absence-less-week";
     readonly LeaveAbsenceMoreWeek: "/user/letter/leave-absence-more-week";
     readonly ReservationAcademicResult: "/user/letter/reservation-acacdemic-result";
-    readonly ContinueStudying: "/user/letter/continue-studying";
+    readonly ContinueStudying: "/user/letter/bus-tickets-register";
     readonly ResignationStudying: "/user/letter/resignation-studying";
     readonly PaymentGraduationPersonal: "/user/letter/payment-graduation-personal";
     readonly PaymentGraduationCollective: "/user/letter/payment-graduation-collective";

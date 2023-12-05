@@ -16,7 +16,7 @@
           <div>
             <div>- Hệ quản lý sinh viên</div>
             <div class="flex items-baseline">
-              - Giảng viên lớp học phần
+              - Chuyên viên lớp học phần
               <FormItem
                 class="pl-3"
                 name="classCourse"
@@ -27,7 +27,7 @@
                   },
                 ]"
                 input="a-input"
-                :input-props="{ disabled: readOnly, placeholder: 'Giảng viên' }"
+                :input-props="{ disabled: readOnly, placeholder: 'Chuyên viên' }"
               >
               </FormItem>
             </div>
@@ -96,7 +96,7 @@
             <FormItem
               class="inline-flex px-2"
               name="class"
-              :rules="[{ required: true, message: 'Vui lòng nhập lớp' }]"
+              :rules="[{ required: true, message: 'Vui lòng nhập lớp' }, { min: 8, message: 'Lớp không đúng định dạng' }, { max: 8, message: 'Lớp không đúng định dạng' }]"
               input="a-input"
               :input-props="{
                 disabled: readOnly,

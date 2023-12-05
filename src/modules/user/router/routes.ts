@@ -62,21 +62,21 @@ const route: RouteRecordRaw = {
             title: "Vay vốn ngân hàng",
           },
         },
-        {
-          path: UserRoutePaths.ChangeCourse,
-          component: () => import("@/modules/user/views/ChangeCourse.vue"),
-          meta: {
-            title: "Đơn đăng ký thay đổi học phần",
-          },
-        },
-        {
-          path: UserRoutePaths.CancellationCourse,
-          component: () =>
-            import("@/modules/user/views/CancellationCourse.vue"),
-          meta: {
-            title: "Đơn hủy học phần",
-          },
-        },
+        // {
+        //   path: UserRoutePaths.ChangeCourse,
+        //   component: () => import("@/modules/user/views/ChangeCourse.vue"),
+        //   meta: {
+        //     title: "Đơn đăng ký thay đổi học phần",
+        //   },
+        // },
+        // {
+        //   path: UserRoutePaths.CancellationCourse,
+        //   component: () =>
+        //     import("@/modules/user/views/CancellationCourse.vue"),
+        //   meta: {
+        //     title: "Đơn hủy học phần",
+        //   },
+        // },
         {
           path: UserRoutePaths.RenewStudentCard,
           component: () => import("@/modules/user/views/RenewStudentCard.vue"),
@@ -92,22 +92,22 @@ const route: RouteRecordRaw = {
             title: "Đơn đề nghị giải quyết công việc",
           },
         },
-        {
-          path: UserRoutePaths.LeaveAbsenceLessWeek,
-          component: () =>
-            import("@/modules/user/views/LeaveAbsenceLessWeek.vue"),
-          meta: {
-            title: "Đơn xin nghỉ học có thời hạn (dưới 7 ngày)",
-          },
-        },
-        {
-          path: UserRoutePaths.LeaveAbsenceMoreWeek,
-          component: () =>
-            import("@/modules/user/views/LeaveAbsenceMoreWeek.vue"),
-          meta: {
-            title: "Đơn xin nghỉ học có thời hạn (trên 7 ngày)",
-          },
-        },
+        // {
+        //   path: UserRoutePaths.LeaveAbsenceLessWeek,
+        //   component: () =>
+        //     import("@/modules/user/views/LeaveAbsenceLessWeek.vue"),
+        //   meta: {
+        //     title: "Đơn xin nghỉ học có thời hạn (dưới 7 ngày)",
+        //   },
+        // },
+        // {
+        //   path: UserRoutePaths.LeaveAbsenceMoreWeek,
+        //   component: () =>
+        //     import("@/modules/user/views/LeaveAbsenceMoreWeek.vue"),
+        //   meta: {
+        //     title: "Đơn xin nghỉ học có thời hạn (trên 7 ngày)",
+        //   },
+        // },
         {
           path: UserRoutePaths.ReservationAcademicResult,
           component: () =>
@@ -120,7 +120,7 @@ const route: RouteRecordRaw = {
           path: UserRoutePaths.ContinueStudying,
           component: () => import("@/modules/user/views/ContinueStudying.vue"),
           meta: {
-            title: "Đơn xin tiếp tục học",
+            title: "Đơn đăng ký vé xe bus",
           },
         },
         {
@@ -131,22 +131,22 @@ const route: RouteRecordRaw = {
             title: "Đơn xin thôi học",
           },
         },
-        {
-          path: UserRoutePaths.PaymentGraduationPersonal,
-          component: () =>
-            import("@/modules/user/views/PaymentGraduationPersonal.vue"),
-          meta: {
-            title: "Phiếu thanh toán ra trường (cá nhân)",
-          },
-        },
-        {
-          path: UserRoutePaths.PaymentGraduationCollective,
-          component: () =>
-            import("@/modules/user/views/PaymentGraduationCollective.vue"),
-          meta: {
-            title: "Phiếu thanh toán ra trường (tập thể)",
-          },
-        },
+        // {
+        //   path: UserRoutePaths.PaymentGraduationPersonal,
+        //   component: () =>
+        //     import("@/modules/user/views/PaymentGraduationPersonal.vue"),
+        //   meta: {
+        //     title: "Phiếu thanh toán ra trường (cá nhân)",
+        //   },
+        // },
+        // {
+        //   path: UserRoutePaths.PaymentGraduationCollective,
+        //   component: () =>
+        //     import("@/modules/user/views/PaymentGraduationCollective.vue"),
+        //   meta: {
+        //     title: "Phiếu thanh toán ra trường (tập thể)",
+        //   },
+        // },
       ],
     },
   ],

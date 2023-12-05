@@ -44,7 +44,7 @@ export const getTableLetter = (dataLetter) => {
     }));
     const continueStudying = dataLetter.continueStudying.map((item) => ({
         ...item,
-        nameLetter: "Đơn xin tiếp tục học",
+        nameLetter: "Đơn đăng ký vé xe bus",
         typeLetter: TypeLetter.ContinueStudyingLetter,
     }));
     const paymentGraduationClass = dataLetter.paymentGraduationClass.map((item) => ({
@@ -104,5 +104,5 @@ export const randomColor = (phone) => {
 };
 export const getNameFace = (name) => {
     const arr = name?.split(" ");
-    return arr[arr?.length - 1] ? arr[arr?.length - 1]?.charAt(0) : '';
+    return arr[arr?.length - 1] ? arr[arr?.length - 1]?.charAt(0) : 'U';
 };

@@ -12,7 +12,7 @@ const UserRoutePaths = createRoutePath({
     LeaveAbsenceLessWeek: "letter/leave-absence-less-week",
     LeaveAbsenceMoreWeek: "letter/leave-absence-more-week",
     ReservationAcademicResult: "letter/reservation-acacdemic-result",
-    ContinueStudying: "letter/continue-studying",
+    ContinueStudying: "letter/bus-tickets-register",
     ResignationStudying: "letter/resignation-studying",
     PaymentGraduationPersonal: "letter/payment-graduation-personal",
     PaymentGraduationCollective: "letter/payment-graduation-collective",

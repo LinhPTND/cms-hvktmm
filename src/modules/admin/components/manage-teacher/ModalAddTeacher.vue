@@ -2,7 +2,7 @@
   <a-modal
     class="modal-add-teacher"
     :visible="props.visible"
-    title="Thêm giảng viên"
+    title="Thêm chuyên viên"
     @cancel="props.handleCancel"
     destroy-on-close
     width="1000px"
@@ -139,14 +139,14 @@ const { run: createTeacherAPI } = fnJob({
   api: (payload: any) => Array.isArray(payload) ? TeacherRepository.addListTeacher(payload) :   TeacherRepository.addTeacher(payload),
   fnSuccess: ({ data }) => {
     notification.success({
-      message: "Tạo mới giảng viên thành công",
+      message: "Tạo mới chuyên viên thành công",
     });
     emit("finish");
     props.handleOk();
   },
   fnError: () => {
     notification.error({
-      message: "Tạo mới giảng viên thất bại",
+      message: "Tạo mới chuyên viên thất bại",
     });
   },
   options: {

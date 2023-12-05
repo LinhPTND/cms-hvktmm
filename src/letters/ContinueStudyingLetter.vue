@@ -1,7 +1,7 @@
 <template>
   <LetterWrap class="letter">
     <div class="title">
-      <h3 class="uppercase mb-2 font-semibold">Đơn xin tiếp tục học</h3>
+      <h3 class="uppercase mb-2 font-semibold">Đơn đăng ký vé xe bus</h3>
     </div>
     <div>
       <Form
@@ -77,7 +77,7 @@
             <span class="label">Lớp: </span>
             <FormItem
               name="class"
-              :rules="[{ required: true, message: 'Vui lòng nhập lớp' }]"
+              :rules="[{ required: true, message: 'Vui lòng nhập lớp' }, { min: 8, message: 'Lớp không đúng định dạng' }, { max: 8, message: 'Lớp không đúng định dạng' }]"
               input="a-input"
               :input-props="{
                 disabled: readOnly,
@@ -191,7 +191,7 @@
         </div>
         <div class="content-line mb-6">
           <div class="mr-6 w-full flex items-baseline">
-            <span class="label mr-2">Hộ khẩu thường trú: </span>
+            <span class="label mr-2">Tuyến bus đăng ký: </span>
             <FormItem
               class="flex-1"
               name="permanentResidence"
@@ -203,84 +203,18 @@
               ]"
               input="a-input"
               :input-props="{
-                placeholder: 'Hộ khẩu thường trú',
+                placeholder: 'Tuyến bus đăng ký',
                 disabled: readOnly,
               }"
             />
           </div>
         </div>
         <div class="content-line">
-          <a-space :align="'baseline'" class="mr-[40px]">
-            <span class="label">Số quyết định:</span>
-            <FormItem
-              name="decisionNumber"
-              :rules="[
-                { required: true, message: 'Vui lòng nhập số quyết định' },
-              ]"
-              v-slot="{ value, handleChange }"
-            >
-              <InputTextNumber
-                :value="value"
-                @update:value="handleChange"
-                :disabled="readOnly"
-              />
-            </FormItem>
-          </a-space>
-          <a-space :align="'baseline'" class="mr-6">
-            <span class="label">Ký ngày:</span>
-            <FormItem
-              name="dateDecisionAssign"
-              :rules="[{ required: true, message: 'Vui lòng nhập ngày ký' }]"
-              v-slot="{ value, handleChange }"
-              :value-transformer="{
-                in: (value: any) => value ? dayjs(value) : value,
-                out: (value: any) => dayjs(value).format('YYYY-MM-DD'),
-              }"
-            >
-              <a-date-picker
-                :value="value"
-                :disabled="readOnly"
-                @update:value="handleChange"
-                format="DD/MM/YYYY"
-                placeholder="DD/MM/YYYY"
-              />
-            </FormItem>
-          </a-space>
-          <a-space :align="'baseline'">
-            <span class="label">
-              của giám đốc Trường đại học công nghệ giao thông vận tải, em được phép bảo lưu kết
-              quả học tập từ ngày
-            </span>
-            <FormItem
-              name="startDateReservationAcademic"
-              :rules="[
-                {
-                  required: true,
-                  message: 'Vui lòng nhập ngày bắt đầu bảo lưu',
-                },
-              ]"
-              :value-transformer="{
-                in: (value: any) => value ? dayjs(value) : value,
-                out: (value: any) => dayjs(value).format('YYYY-MM-DD') ,
-              }"
-              v-slot="{ value, handleChange }"
-            >
-              <a-date-picker
-                :value="value"
-                :disabled="readOnly"
-                @update:value="handleChange"
-                format="DD/MM/YYYY"
-                placeholder="DD/MM/YYYY"
-              />
-            </FormItem>
-          </a-space>
-        </div>
-        <div class="content-line">
-          <span class="label mr-2">Thời gian bảo lưu: </span>
+          <span class="label mr-2">Loại vé: </span>
           <FormItem
             name="timeReservationAcademic"
             :rules="[
-              { required: true, message: 'Vui lòng nhập thời gian bảo lưu' },
+              { required: true, message: 'Vui lòng chọn loại vé' },
             ]"
             v-slot="{ value, handleChange }"
           >
@@ -289,98 +223,10 @@
               @update:value="handleChange"
               :disabled="readOnly"
             >
-              <a-radio :value="6">06 tháng</a-radio>
-              <a-radio :value="12">12 tháng</a-radio>
+              <a-radio :value="6">Một tuyến</a-radio>
+              <a-radio :value="12">Liên tuyến</a-radio>
             </a-radio-group>
           </FormItem>
-        </div>
-        <div class="content-line">
-          <span class="label mr-2"
-            >Nay đã hết thời gian bảo lưu. Em làm đơn này xin được tiếp tục tham
-            gia học tập từ ngày
-          </span>
-          <FormItem
-            class="mr-2"
-            name="dateComeback"
-            :rules="[{ required: true }]"
-            :value-transformer="{
-                in: (value: any) => value ? dayjs(value) : value,
-                out: (value: any) => dayjs(value).format('YYYY-MM-DD'),
-              }"
-            v-slot="{ value, handleChange }"
-          >
-            <a-date-picker
-              :value="value"
-              :disabled="readOnly"
-              @update:value="handleChange"
-              format="DD/MM/YYYY"
-              placeholder="DD/MM/YYYY"
-            />
-          </FormItem>
-          (Học kỳ
-          <FormItem
-            class="inline-flex px-2"
-            name="semester"
-            :rules="[
-              {
-                required: true,
-                message: 'Vui lòng nhập học kì',
-              },
-            ]"
-            input="a-input-number"
-            :input-props="{
-              min: 1,
-              disabled: readOnly,
-              max: 10,
-            }"
-          />
-          năm học
-          <FormItem
-            class="inline-flex px-2"
-            name="startYear"
-            :rules="[
-              {
-                required: true,
-                message: 'Vui lòng nhập năm học kì bắt đầu',
-              },
-              {
-                type: 'number',
-                min: 2000,
-              },
-            ]"
-            input="a-input-number"
-            :input-props="{
-              disabled: readOnly,
-            }"
-          />
-          –
-          <FormItem
-            class="inline-flex px-2"
-            name="endYear"
-            :rules="[
-              {
-                required: true,
-                message: 'Vui lòng nhập năm học kì kết thúc',
-              },
-              {
-                type: 'number',
-                min: 2000,
-              },
-            ]"
-            input="a-input-number"
-            :input-props="{
-              disabled: readOnly,
-            }"
-          />)
-        </div>
-        <div class="content-line mb-5">
-          <div>
-            Em xin cam kết sẽ chấp hành nghiêm quy chế và quy định trong học
-            tập.
-          </div>
-        </div>
-        <div class="content-line">
-          <div>Em xin chân thành cảm ơn.</div>
         </div>
       </Form>
     </div>

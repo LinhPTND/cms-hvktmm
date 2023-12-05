@@ -10,7 +10,7 @@
         <a-col :span="12">
           <FormItem
             name="name"
-            label="Họ tên giảng viên"
+            label="Họ tên chuyên viên"
             hide-text-error
             input="a-input"
           />

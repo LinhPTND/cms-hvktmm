@@ -141,13 +141,13 @@ const { run: deleteTeacher } = fnJob({
   api: (id: string) => TeacherRepository.deleteTeacher(id),
   fnSuccess: (data) => {
     notification.success({
-      message: "Xóa giảng viên thành công",
+      message: "Xóa chuyên viên thành công",
     });
     emit("refreshTable");
   },
   fnError: (err) => {
     notification.error({
-      message: "Không xóa giảng viên",
+      message: "Không xóa chuyên viên",
     });
   },
 });

@@ -78,7 +78,7 @@
             <span class="label">Lớp: </span>
             <FormItem
               name="class"
-              :rules="[{ required: true, message: 'Vui lòng nhập lớp' }]"
+              :rules="[{ required: true, message: 'Vui lòng nhập lớp' }, { min: 8, message: 'Lớp không đúng định dạng' }, { max: 8, message: 'Lớp không đúng định dạng' }]"
               input="a-input"
               :input-props="{
                 disabled: readOnly,

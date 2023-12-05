@@ -46,7 +46,7 @@ export const getTableLetter = (dataLetter: DataListLetterResponse): any[] => {
   }));
   const continueStudying = dataLetter.continueStudying.map((item) => ({
     ...item,
-    nameLetter: "Đơn xin tiếp tục học",
+    nameLetter: "Đơn đăng ký vé xe bus",
     typeLetter: TypeLetter.ContinueStudyingLetter,
   }));
   const paymentGraduationClass = dataLetter.paymentGraduationClass.map(
