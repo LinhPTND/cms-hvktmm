@@ -1,5 +1,6 @@
 import jwtDecode from "jwt-decode";
 import { defineStore } from "pinia";
+import axios from "axios";
 
 interface AuthStoreState {
   accessToken: string;
@@ -52,7 +53,6 @@ export const useAuth = defineStore({
       this.refreshToken = data.refreshToken;
       if (data.accessToken) {
         const jwtData: JwtAccessToken = jwtDecode(data.accessToken) as any;
-        console.log(jwtData, 111)
         this.user = {
           username: jwtData.username,
           name: jwtData.name,
@@ -70,6 +70,9 @@ export const useAuth = defineStore({
       this.expiresIn = 0;
       this.user = undefined;
     },
+    getInfoAdmin() {
+
+    }
   },
 
   persist: {

@@ -1,5 +1,5 @@
 import {StatusLetter} from "@/models/Letter";
-import {ListLetterResponse} from "@/models/User";
+import {GetInfoRequest, ListLetterResponse} from "@/models/User";
 import {Repository} from "@/core/Repository/index";
 import env from "@/core/env/index";
 
@@ -17,6 +17,13 @@ class AdminRepository extends Repository {
             params: payload,
         });
     }
+  getInfoAdmin(id: string) {
+    return this.request<any>({
+      url: `/admin/${id}`,
+      method: "get",
+      showLoading: true,
+    });
+  }
 
 }
 

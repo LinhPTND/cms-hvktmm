@@ -8,6 +8,7 @@ declare class AdminRepository extends Repository {
         name?: string;
         msv?: string;
     }): import("rxjs").Observable<import("axios").AxiosResponse<ListLetterResponse, any>>;
+    getInfoAdmin(id: string): import("rxjs").Observable<import("axios").AxiosResponse<any, any>>;
 }
 declare const _default: AdminRepository;
 export default _default;

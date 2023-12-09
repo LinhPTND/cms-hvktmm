@@ -30,5 +30,6 @@ export declare const useAuth: import("pinia").StoreDefinition<"auth", AuthStoreS
 }, {
     login(data: AuthStoreState): void;
     logout(): void;
+    getInfoAdmin(): void;
 }>;
 export {};

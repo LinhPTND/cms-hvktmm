@@ -198,7 +198,7 @@
               :rules="[
                 {
                   required: true,
-                  message: 'Vui lòng nhập hộ khẩu thường trú',
+                  message: 'Vui lòng nhập tuyến bus đăng ký',
                 },
               ]"
               input="a-input"

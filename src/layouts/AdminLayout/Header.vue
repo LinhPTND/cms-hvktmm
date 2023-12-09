@@ -44,12 +44,25 @@
                 {{ menuItem.label }}
               </router-link>
             </a-menu-item>
+            <a-menu-item @click="() => modalAddSignature = true">
+                   <span>Thay đổi chữ ký</span>
+            </a-menu-item>
             <a-menu-item @click="handleLogout">
               <span>Đăng xuất</span>
             </a-menu-item>
           </a-menu>
         </template>
       </a-dropdown>
+      <a-modal v-model:visible="modalAddSignature">
+           <div class="pt-[64px] flex justify-center w-full">
+                 <UploadImage></UploadImage>
+           </div>
+        <template #footer>
+               <a-button type="red" @click="() => modalAddSignature = false">Hủy</a-button>
+          <a-button type="primary">Xác nhận</a-button>
+
+        </template>
+      </a-modal>
     </div>
   </div>
 </template>
@@ -62,8 +75,9 @@ import AuthRoutePaths from "@/modules/auth/router/paths.js";
 import AuthRepository from "@/repositories/AuthRepository.js";
 import { useAuth } from "@/stores/auth.js";
 import { notification } from "ant-design-vue";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
+import UploadImage from "@/components/UploadImage.vue";
 
 defineProps({
   countNotification: { type: Number, default: () => 5 },
@@ -75,7 +89,7 @@ defineEmits<{
 
 const router = useRouter();
 const { logout } = useAuth();
-
+const modalAddSignature = ref(false)
 const menuUser: () => { label: string; path: string }[] = () => [
   { label: "Thông tin cá nhân", path: "" },
 ];
@@ -131,7 +145,7 @@ function handleLogout() {
   }
 
   &__center {
-    @apply w-full md:w-1/2 xl:w-1/3;
+    @apply w-full;
   }
 
   &__right {

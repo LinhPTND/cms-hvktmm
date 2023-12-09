@@ -13,5 +13,12 @@ class AdminRepository extends Repository {
             params: payload,
         });
     }
+    getInfoAdmin(id) {
+        return this.request({
+            url: `/admin/${id}`,
+            method: "get",
+            showLoading: true,
+        });
+    }
 }
 export default new AdminRepository();

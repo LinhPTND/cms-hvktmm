@@ -20,6 +20,7 @@ export interface LoginResponse {
         accessToken: string;
         refreshToken: string;
         type: "user" | "teacher" | "admin";
+        id: string;
     };
     message?: string;
 }

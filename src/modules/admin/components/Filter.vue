@@ -1,7 +1,7 @@
 <template>
   <div class="filter">
     <Form layout="vertical" @finish="handleFinish">
-      <FormItem name="name" label="Họ tên cán bộ" input="a-input" />
+      <FormItem name="name" label="Họ tên chuyên viên" input="a-input" />
       <a-row :gutter="[16, 0]">
       </a-row>
       <div class="flex mt-4 justify-center">
