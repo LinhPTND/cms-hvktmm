@@ -250,6 +250,9 @@
           />
           <span>theo quy định và chế độ hiện hành./.</span>
         </div>
+        <div v-if="['success', 'approved'].includes(initialValues?.status)" class="w-full flex justify-end">
+          <Signature></Signature>
+        </div>
       </Form>
     </div>
   </LetterWrap>
@@ -264,6 +267,7 @@ import { EnjoyPolicyRequest } from "@/models/EnjoyPolicy";
 import { FormExposed } from "@/models/Form";
 import dayjs from "dayjs";
 import { computed, ref } from "vue";
+import Signature from "@/components/Signature.vue";
 
 const props = withDefaults(
   defineProps<{

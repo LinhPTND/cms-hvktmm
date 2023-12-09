@@ -229,6 +229,9 @@
           </FormItem>
         </div>
       </Form>
+      <div v-if="['success', 'approved'].includes(initialValues?.status)" class="w-full flex justify-end">
+        <Signature></Signature>
+      </div>
     </div>
   </LetterWrap>
 </template>
@@ -244,6 +247,7 @@ import { ContinueStudyingRequest } from "@/models/ContinueStudying";
 import { FormExposed } from "@/models/Form";
 import dayjs from "dayjs";
 import { computed, ref } from "vue";
+import Signature from "@/components/Signature.vue";
 
 const props = withDefaults(
   defineProps<{

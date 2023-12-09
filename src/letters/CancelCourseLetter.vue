@@ -220,6 +220,9 @@
             </li>
           </ul>
           <div>Em xin chân thành cảm ơn.</div>
+          <div v-if="['success', 'approved'].includes(initialValues?.status)" class="w-full flex justify-end">
+            <Signature></Signature>
+          </div>
         </div>
       </Form>
     </div>
@@ -237,6 +240,7 @@ import { FormExposed } from "@/models/Form";
 import TableCancelCourse from "@/modules/user/components/TableLetters/TableCancelCourse.vue";
 import { Rule } from "ant-design-vue/lib/form/interface";
 import { computed, ref } from "vue";
+import Signature from "@/components/Signature.vue";
 
 const props = withDefaults(
   defineProps<{

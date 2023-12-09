@@ -328,6 +328,9 @@
           hoàn toàn chịu trách nhiệm. Em xin chân thành cảm ơn.
         </div>
       </Form>
+      <div v-if="['success', 'approved'].includes(initialValues?.status)" class="w-full flex justify-end">
+        <Signature></Signature>
+      </div>
     </div>
   </LetterWrap>
 </template>
@@ -343,6 +346,7 @@ import { FormExposed } from "@/models/Form";
 import { LeaveAbsenceMoreRequest } from "@/models/LeaveAbsenceMore";
 import dayjs from "dayjs";
 import { computed, ref } from "vue";
+import Signature from "@/components/Signature.vue";
 
 const props = withDefaults(
   defineProps<{

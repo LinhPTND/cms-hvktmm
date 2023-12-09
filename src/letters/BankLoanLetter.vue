@@ -177,14 +177,7 @@
                   required: true,
                   message: 'Vui lòng nhập khóa học',
                 },
-                {
-                  min: 2,
-                  message: 'Khóa không đúng định dạng',
-                },
-                {
-                  max: 2,
-                  message: 'Khóa không đúng định dạng',
-                },
+
               ]"
               :value-transformer="{
                 in: (value: any) => value ? [dayjs(value[0]), dayjs(value[1])] : value,
@@ -196,7 +189,7 @@
                 @update:value="handleChange"
                 :disabled="readOnly"
                 :format="'MM/YYYY'"
-                picker="month"
+                picker="day"
               />
             </FormItem>
           </a-space>
@@ -441,6 +434,9 @@
               />
             </FormItem>
           </a-space>
+          <div v-if="['success', 'approved'].includes(initialValues?.status)" class="w-full flex justify-end">
+            <Signature></Signature>
+          </div>
         </div>
       </Form>
     </div>
@@ -464,6 +460,7 @@ import { BankLoanRequest } from "@/models/BankLoan";
 import { FormExposed } from "@/models/Form";
 import dayjs from "dayjs";
 import { computed, ref } from "vue";
+import Signature from "@/components/Signature.vue";
 
 const props = withDefaults(
   defineProps<{

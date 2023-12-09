@@ -250,6 +250,9 @@
           </div>
         </div>
         <div class="content-line">Em xin chân thành cảm ơn.</div>
+        <div v-if="['success', 'approved'].includes(initialValues?.status)" class="w-full flex justify-end">
+          <Signature></Signature>
+        </div>
       </Form>
     </div>
   </LetterWrap>
@@ -266,6 +269,7 @@ import { BankLoanRequest } from "@/models/BankLoan";
 import { FormExposed } from "@/models/Form";
 import dayjs from "dayjs";
 import { computed, ref } from "vue";
+import Signature from "@/components/Signature.vue";
 
 const props = withDefaults(
   defineProps<{

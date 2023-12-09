@@ -49,7 +49,7 @@ import UserRoutePaths from "@/modules/user/router/paths.js";
 import AuthRepository from "@/repositories/AuthRepository";
 import { useAuth } from "@/stores/auth.js";
 import { notification } from "ant-design-vue";
-import { reactive, UnwrapRef } from "vue";
+import {onMounted, reactive, UnwrapRef} from "vue";
 import { useRouter } from "vue-router";
 import AdminRepository from "@/repositories/AdminRepository";
 
@@ -79,7 +79,7 @@ const { run: loginAPI } = fnJob({
       });
       const typeAccount = data.data.type;
       if (typeAccount === "admin") {
-        getInfoAdmin('6527ee14e584c653dab99fd6')
+
         router.push(AdminRoutePaths.Index);
       } else if (typeAccount === "teacher") {
         router.push(TeacherRoutePaths.Info);
@@ -103,19 +103,7 @@ const { run: loginAPI } = fnJob({
   },
 });
 
-const { run: getInfoAdmin } = fnJob({
-  api: (id: string) => AdminRepository.getInfoAdmin(id),
-  fnSuccess: ({ data }) => {
-    if (data.success) {
 
-    } else {
-
-    }
-  },
-  options: {
-    showLoading: true,
-  },
-});
 const redirectForgotPassword = () => {
   router.push(AuthRoutePaths.ForgotPassword);
 };

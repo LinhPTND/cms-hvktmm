@@ -277,6 +277,9 @@
           </a-table>
         </div>
       </Form>
+      <div v-if="['success', 'approved'].includes(initialValues?.status)" class="w-full flex justify-end">
+        <Signature></Signature>
+      </div>
     </div>
   </LetterWrap>
 </template>
@@ -292,6 +295,7 @@ import { FormExposed } from "@/models/Form";
 import { ColumnProps } from "ant-design-vue/lib/table/Column";
 import dayjs from "dayjs";
 import { computed, reactive, ref } from "vue";
+import Signature from "@/components/Signature.vue";
 
 const props = withDefaults(
   defineProps<{

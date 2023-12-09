@@ -29,9 +29,12 @@
 
 <script setup lang="ts">
 import TransitionFade from "@/components/animation/TransitionFade.vue";
-import { ref } from "vue";
+import {onMounted, ref} from "vue";
 import { RouterView, useRoute, useRouter } from "vue-router";
 import Header from "./Header.vue";
+import {fnJob} from "@/core/composables/useJob";
+import AdminRepository from "@/repositories/AdminRepository";
+import {useAppStore} from "@/stores/app";
 
 const drawerVisible = ref(false);
 

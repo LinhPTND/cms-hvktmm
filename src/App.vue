@@ -10,9 +10,12 @@ import antEnLocale from "ant-design-vue/es/locale/en_US";
 import dayjs from "dayjs";
 import "dayjs/locale/en";
 import "dayjs/locale/vi";
-import { watchEffect } from "vue";
+import {onMounted, watchEffect} from "vue";
 import { useI18n } from "vue-i18n";
 import { RouterView } from "vue-router";
+import {fnJob} from "@/core/composables/useJob";
+import AdminRepository from "@/repositories/AdminRepository";
+import {useAppStore} from "@/stores/app";
 
 const { locale } = useI18n();
 
@@ -28,6 +31,22 @@ watchEffect(() => {
   dayjs.locale(locale.value);
   document.querySelector("html")?.setAttribute("lang", locale.value);
 });
+
+const { run: getInfoAdmin } = fnJob({
+  api: (id: string) => AdminRepository.getInfoAdmin(id),
+  fnSuccess: ({ data }) => {
+    console.log(data)
+    console.log(data.data[0]?.signature)
+    useAppStore().setSignature(data.data[0]?.signature)
+  },
+  options: {
+    showLoading: true,
+  },
+});
+
+onMounted(() => {
+  getInfoAdmin('6573e535358a8c737090c7f6')
+})
 
 const onError = (error: Error) => {
   console.error(error);

@@ -24,14 +24,18 @@
 
 <script setup lang="ts">
 import TransitionFade from "@/components/animation/TransitionFade.vue";
-import { ref } from "vue";
+import {onMounted, ref} from "vue";
 import { RouterView } from "vue-router";
 import Header from "./Header.vue";
 import SideBar from "./SideBar.vue";
 import { useLoading } from "@/core/loading";
+import {fnJob} from "@/core/composables/useJob";
+import AdminRepository from "@/repositories/AdminRepository";
+import {useAppStore} from "@/stores/app";
 
 const drawerVisible = ref(false);
 const { startLoading, stopLoading } = useLoading();
+
 </script>
 
 <style lang="scss" scoped>

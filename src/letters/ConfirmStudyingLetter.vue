@@ -326,6 +326,9 @@
             buôn lậu…….
           </div>
         </div>
+        <div v-if="['success', 'approved'].includes(initialValues?.status)" class="w-full flex justify-end">
+          <Signature></Signature>
+        </div>
       </Form>
     </div>
   </LetterWrap>
@@ -343,6 +346,7 @@ import { FormExposed } from "@/models/Form";
 import { Rule } from "ant-design-vue/lib/form/interface";
 import dayjs from "dayjs";
 import { computed, ref } from "vue";
+import Signature from "@/components/Signature.vue";
 
 const props = withDefaults(
   defineProps<{
