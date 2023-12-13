@@ -79,7 +79,7 @@ const { run: loginAPI } = fnJob({
       });
       const typeAccount = data.data.type;
       if (typeAccount === "admin") {
-
+        //
         router.push(AdminRoutePaths.Index);
       } else if (typeAccount === "teacher") {
         router.push(TeacherRoutePaths.Info);

@@ -40,6 +40,7 @@ const handleChange = (info: UploadChangeParam) => {
       loading.value = false;
     });
     loading.value = true;
+    console.log(imageUrl.value)
     return;
   }
 };

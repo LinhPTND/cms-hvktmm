@@ -35,8 +35,6 @@ watchEffect(() => {
 const { run: getInfoAdmin } = fnJob({
   api: (id: string) => AdminRepository.getInfoAdmin(id),
   fnSuccess: ({ data }) => {
-    console.log(data)
-    console.log(data.data[0]?.signature)
     useAppStore().setSignature(data.data[0]?.signature)
   },
   options: {
