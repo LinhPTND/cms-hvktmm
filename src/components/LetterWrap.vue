@@ -44,7 +44,7 @@ const dayNow = computed(() => {
 });
 
 const monthNow = computed(() => {
-  return dayjs().get("month");
+  return dayjs().get("month") + 1;
 });
 
 const yearNow = computed(() => {
