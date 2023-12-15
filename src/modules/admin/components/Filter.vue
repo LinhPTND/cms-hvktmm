@@ -1,7 +1,7 @@
 <template>
   <div class="filter">
     <Form layout="vertical" @finish="handleFinish">
-      <FormItem name="name" label="Họ tên chuyên viên" input="a-input" />
+      <FormItem name="name" label="Họ tên sinh viên" input="a-input" />
       <a-row :gutter="[16, 0]">
       </a-row>
       <div class="flex mt-4 justify-center">
@@ -22,7 +22,7 @@ import Form from "@/components/Form.vue";
 import FormItem from "@/components/FormItem.vue";
 import { Majors, StatusLetterOptions } from "@/constants/Options";
 import { StatusLetter } from "@/models/custom";
-import { reactive, UnwrapRef } from "vue";
+import { reactive,defineEmits, UnwrapRef } from "vue";
 
 interface FormState {
   name: string;
@@ -31,6 +31,8 @@ interface FormState {
   class: string;
   statusLetter: StatusLetter | undefined;
 }
+
+const emit = defineEmits(['change'])
 
 const defaultValueForm = (): FormState => ({
   name: "",
@@ -42,7 +44,9 @@ const defaultValueForm = (): FormState => ({
 
 const formState: UnwrapRef<FormState> = reactive(defaultValueForm());
 
-const handleFinish = (values: any) => {};
+const handleFinish = (values: any) => {
+    emit('change', values)
+};
 </script>
 
 <style lang="scss" scoped>

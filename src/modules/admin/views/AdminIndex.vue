@@ -57,6 +57,7 @@ const refreshTable = () => {
 };
 
 const changeFilter = (values: ListRequest) => {
+  console.log(values)
     filterData.value = values;
 };
 
