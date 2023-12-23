@@ -22,7 +22,10 @@ import { ref } from 'vue';
 import { PlusOutlined, LoadingOutlined } from '@ant-design/icons-vue';
 import { message } from 'ant-design-vue';
 import type { UploadChangeParam, UploadProps } from 'ant-design-vue';
-
+import {fnJob} from "@/core/composables/useJob";
+import AdminRepository from "@/repositories/AdminRepository";
+import {getTableLetter} from "@/utilities/resolveLetter";
+import UploadRepository from "@/repositories/UploadRepository";
 function getBase64(img: Blob, callback: (base64Url: string) => void) {
   const reader = new FileReader();
   reader.addEventListener('load', () => callback(reader.result as string));
@@ -33,7 +36,19 @@ const fileList = ref([]);
 const loading = ref<boolean>(false);
 const imageUrl = ref<string>('');
 
+
+const { run: uploadImage } = fnJob({
+  api: ( image: File) =>
+    UploadRepository.uploadImage( {image}),
+  fnSuccess: ({ data }) => {
+    console.log(data)
+  },
+  options: {
+    showLoading: true,
+  },
+});
 const handleChange = (info: UploadChangeParam) => {
+  uploadImage(info.file)
   if (info.file.status === 'uploading') {
     getBase64(info.file?.originFileObj, (base64Url: string) => {
       imageUrl.value = base64Url;
@@ -44,6 +59,8 @@ const handleChange = (info: UploadChangeParam) => {
     return;
   }
 };
+
+
 
 const beforeUpload = (file: UploadProps['fileList'][number]) => {
   const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';

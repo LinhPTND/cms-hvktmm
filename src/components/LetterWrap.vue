@@ -1,5 +1,5 @@
 <template>
-  <div class="letter-wrap">
+  <div class="letter-wrap" id="contentPdf">
     <div class="content">
       <div class="chxh">
         <a-row justify="space-between">
@@ -32,12 +32,16 @@
       </div>
       <slot></slot>
     </div>
+    <div class="w-full flex justify-center items-center py-6">
+      <a-button type="primary" @click="exportToPDF">Xuất File PDF</a-button>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import dayjs from "dayjs";
 import { computed } from "vue";
+import html2pdf from "html2pdf.js";
 
 const dayNow = computed(() => {
   return dayjs().get("date");
@@ -50,6 +54,13 @@ const monthNow = computed(() => {
 const yearNow = computed(() => {
   return dayjs().get("year");
 });
+
+const exportToPDF =  async () => {
+  html2pdf(document.getElementById('contentPdf'), {
+    margin: 1,
+    filename: 'don-tu-dai-hoc-cn-gtvt'
+  })
+}
 </script>
 
 <style lang="scss" scoped>

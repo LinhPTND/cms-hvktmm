@@ -1,7 +1,7 @@
 <template>
   <LetterWrap class="letter">
     <div class="title">
-      <h3 class="uppercase mb-2 font-semibold">Giấy xác nhận</h3>
+      <h3 class="mb-2 font-semibold uppercase">Giấy xác nhận</h3>
     </div>
     <div>
       <Form
@@ -78,7 +78,7 @@
             </FormItem>
           </a-space>
         </div>
-        <div class="content-line mb-2">
+        <div class="mb-2 content-line">
           <a-space align="baseline" class="mr-6">
             <span class="label">Số CMND: </span>
             <FormItem
@@ -116,8 +116,8 @@
               />
             </FormItem>
           </a-space>
-          <div class="mr-6 flex items-baseline flex-1">
-            <span class="label mr-2">Nơi cấp: </span>
+          <div class="flex items-baseline flex-1 mr-6">
+            <span class="mr-2 label">Nơi cấp: </span>
             <FormItem
               class="flex-1"
               name="placeCitizenId"
@@ -133,10 +133,10 @@
           </div>
         </div>
 
-        <div class="content-line mb-6">
+        <div class="mb-6 content-line">
           Mã trường theo học (Mã theo quy định tuyển sinh): KMA
         </div>
-        <div class="content-line mb-6">
+        <div class="mb-6 content-line">
           Tên trường: Trường đại học công nghệ giao thông vận tải.
         </div>
         <div class="content-line">
@@ -167,7 +167,7 @@
         </div>
         <div class="content-line">
           <a-space align="baseline" class="mr-[32px]">
-            <span class="label mr-2">Khóa: </span>
+            <span class="mr-2 label">Khóa: </span>
             <FormItem
               class="inline-flex px-2"
               name="course"
@@ -177,7 +177,6 @@
                   required: true,
                   message: 'Vui lòng nhập khóa học',
                 },
-
               ]"
               :value-transformer="{
                 in: (value: any) => value ? [dayjs(value[0]), dayjs(value[1])] : value,
@@ -194,17 +193,21 @@
             </FormItem>
           </a-space>
           <a-space align="baseline">
-            <span class="label mr-2">Loại hình đạo tạo: Chính quy </span>
+            <span class="mr-2 label">Loại hình đạo tạo: Chính quy </span>
           </a-space>
         </div>
 
         <div class="content-line">
           <a-space class="mr-[32px]" align="baseline">
-            <span class="label mr-2">Lớp: </span>
+            <span class="mr-2 label">Lớp: </span>
             <FormItem
               class="inline-flex px-2"
               name="class"
-              :rules="[{ required: true, message: 'Vui lòng nhập lớp' }, { min: 8, message: 'Lớp không đúng định dạng' }, { max: 8, message: 'Lớp không đúng định dạng' }]"
+              :rules="[
+                { required: true, message: 'Vui lòng nhập lớp' },
+                { min: 8, message: 'Lớp không đúng định dạng' },
+                { max: 8, message: 'Lớp không đúng định dạng' },
+              ]"
               input="a-input"
               :input-props="{
                 disabled: readOnly,
@@ -213,7 +216,7 @@
             />
           </a-space>
           <a-space class="mr-[32px]" align="baseline">
-            <span class="label mr-2">Mã sinh viên: </span>
+            <span class="mr-2 label">Mã sinh viên: </span>
             <FormItem
               class="inline-flex px-2"
               name="msv"
@@ -232,7 +235,7 @@
 
         <div class="content-line">
           <a-space class="mr-[32px]" align="baseline">
-            <span class="label mr-2">Khoa: </span>
+            <span class="mr-2 label">Khoa: </span>
             <FormItem
               class="inline-flex px-2"
               name="department"
@@ -253,7 +256,7 @@
 
         <div class="content-line">
           <a-space class="mr-[32px]" align="baseline">
-            <span class="label mr-2">Ngày nhập học: </span>
+            <span class="mr-2 label">Ngày nhập học: </span>
             <FormItem
               class="inline-flex px-2"
               name="schoolStart"
@@ -279,7 +282,7 @@
             </FormItem>
           </a-space>
           <a-space class="mr-[32px]" align="baseline">
-            <span class="label mr-2">Thời gian ra trường (tháng/năm): </span>
+            <span class="mr-2 label">Thời gian ra trường (tháng/năm): </span>
             <FormItem
               class="inline-flex px-2"
               name="schoolEnd"
@@ -310,10 +313,10 @@
           Thời gian học tại trường: 50 tháng.
         </div>
 
-        <ul class="list-disc pl-5">
+        <ul class="pl-5 list-disc">
           <li>
             <a-space class="mr-[32px]" align="baseline">
-              <span class="label mr-2">Số tiền học phí hàng tháng: </span>
+              <span class="mr-2 label">Số tiền học phí hàng tháng: </span>
               <FormItem
                 class="inline-flex px-2"
                 name="tuitionFee"
@@ -338,7 +341,7 @@
           </li>
           <li>
             <a-space class="mr-[32px]" align="baseline">
-              <span class="label mr-2">Thuộc diện: </span>
+              <span class="mr-2 label">Thuộc diện: </span>
               <FormItem
                 class="inline-flex px-2"
                 name="tuitionType"
@@ -360,7 +363,7 @@
           </li>
           <li>
             <a-space class="mr-[32px]" align="baseline">
-              <span class="label mr-2">Thuộc đối tượng: </span>
+              <span class="mr-2 label">Thuộc đối tượng: </span>
               <FormItem
                 class="inline-flex px-2"
                 name="tuitionObj"
@@ -391,7 +394,7 @@
         </div>
         <div class="content-line">
           <a-space class="mr-[32px]" align="baseline">
-            <span class="label mr-2">Tài khoản ngân hàng số: </span>
+            <span class="mr-2 label">Tài khoản ngân hàng số: </span>
             <FormItem
               class="inline-flex px-2"
               name="bankNumber"
@@ -434,7 +437,10 @@
               />
             </FormItem>
           </a-space>
-          <div v-if="['success', 'approved'].includes(initialValues?.status)" class="w-full flex justify-end">
+          <div
+            v-if="['success', 'approved'].includes(initialValues?.status)"
+            class="flex justify-end w-full"
+          >
             <Signature></Signature>
           </div>
         </div>
@@ -448,6 +454,7 @@ import Form from "@/components/Form.vue";
 import FormItem from "@/components/FormItem.vue";
 import InputTextNumber from "@/components/InputTextNumber.vue";
 import LetterWrap from "@/components/LetterWrap.vue";
+import Signature from "@/components/Signature.vue";
 import {
   Bank,
   Genders,
@@ -456,11 +463,9 @@ import {
   TuitionType,
 } from "@/constants/Options";
 import { validateCitizenId, validatePhone } from "@/hooks/validate";
-import { BankLoanRequest } from "@/models/BankLoan";
 import { FormExposed } from "@/models/Form";
 import dayjs from "dayjs";
 import { computed, ref } from "vue";
-import Signature from "@/components/Signature.vue";
 
 const props = withDefaults(
   defineProps<{
@@ -473,9 +478,7 @@ const props = withDefaults(
 );
 
 const formRef = ref<FormExposed>();
-
 const formValues = computed(() => formRef.value?.values);
-
 const emit = defineEmits<{
   (e: "finish", value: any): void;
 }>();
