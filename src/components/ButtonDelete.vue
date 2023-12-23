@@ -10,10 +10,11 @@
     @visible-change="toogleConfirm"
   >
     <a-tooltip placement="top" :title="t('common.delete')" v-if="onlyIcon">
-      <Button type="red" danger>
+      <Button type="red"  danger>
         <template #icon>
           <DeleteOutlined />
         </template>
+        <span>Xóa</span>
       </Button>
     </a-tooltip>
     <Button type="red" danger v-else>

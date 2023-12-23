@@ -14,7 +14,7 @@
       <div class="info-header mb-5 flex items-start justify-between">
         <div class="info-account">
           <div class="w-[66px] h-[66px] mr-[16px]">
-            <img :src="Assets.Images.Avatar.boy" alt="" />
+            <img src="../../../assets/images/anh_chuyen_vien.png" alt="" />
           </div>
           <div class="info-basic">
             <h3 class="name mb-2 capitalize">{{ teacherInfo?.name }}</h3>
@@ -83,7 +83,6 @@
 </template>
 
 <script lang="ts" setup>
-import Assets from "@/assets";
 import ButtonEdit from "@/components/ButtonEdit.vue";
 import CardContent from "@/components/CardContent.vue";
 import { fnJob } from "@/core/composables/useJob";

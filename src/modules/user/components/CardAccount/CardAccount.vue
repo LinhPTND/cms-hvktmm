@@ -3,7 +3,7 @@
     <div class="info-header mb-5 flex items-start justify-between">
       <div class="info-account">
         <div class="w-[66px] h-[66px] mr-[16px]">
-          <img :src="Assets.Images.Avatar.boy" alt="" />
+          <img src="../../../../assets/images/anh_cv.png" alt="" />
         </div>
         <div>
           <div class="info-basic">
@@ -14,7 +14,7 @@
             <span>Số dư: <span class="font-bold text-lg">{{ userInfo?.balance}} VND</span></span>
           </div>
         </div>
-      </div>
+      </div>  
 
       <div class="info-button flex gap-4">
         <a-button class="font-semibold" type="primary" @click="showModalChange">
@@ -79,7 +79,6 @@
 </template>
 
 <script lang="ts" setup>
-import Assets from "@/assets";
 import ButtonEdit from "@/components/ButtonEdit.vue";
 import CardContentVue from "@/components/CardContent.vue";
 import ModalChangePassword from "@/components/ModalChangePassword.vue";

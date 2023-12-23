@@ -63,7 +63,7 @@
     <a-table-column title="Trạng thái" data-index="status">
       <template #default="{ record }">
         <a-tag
-          class="w-[70px]"
+          class="w-[100px] tag-custom"
           :key="record.status"
           :color="
             record.status === StatusLetter.PENDING
@@ -73,11 +73,11 @@
               : 'volcano'
           "
         >
-          {{ record.status.toString().toUpperCase() }}
+          {{ translationStatus(record.status.toString().toUpperCase()) }}
         </a-tag>
       </template>
     </a-table-column>
-    <a-table-column title="Hành động" align="center">
+    <a-table-column title="Hành động" text-align ="center" >
       <template #default="{ record }">
         <TableAction
           :record="record"
@@ -380,6 +380,35 @@ const handleChange = () => {
   currentPagination.value = 1;
   closeModalCheckLetter();
 };
+
+const translationStatus = (statusRes: string) => {
+  switch (statusRes) {
+    case 'PENDING':
+      return 'Chờ duyệt'
+    case 'SUCCESS':
+      return 'Thành công'
+    case 'CONFIRM':
+      return 'Đang duyệt'
+    case 'APPROVED':
+      return 'Hủy đơn từ'
+    default:
+      return 'Chờ duyệt'
+  }
+}
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+a-table-column {
+  display:flex;
+  justify-content:center;
+}
+
+.tag-custom{
+  height: 30px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 14px !important;
+  align-items: center !important;
+}
+</style>

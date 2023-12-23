@@ -61,7 +61,7 @@
       <a-table-column title="Trạng thái" data-index="status">
         <template #default="{ record }">
           <a-tag
-            class="min-w-[70px]"
+            class="min-w-[70px] tag-custom"
             :key="record.status"
             :color="
               record.status === StatusLetter.PENDING
@@ -71,7 +71,7 @@
                 : 'volcano'
             "
           >
-            {{ record.status?.toString().toUpperCase() }}
+            {{ translationStatus(record.status?.toString().toUpperCase()  ) }}
           </a-tag>
         </template>
       </a-table-column>
@@ -103,6 +103,7 @@ import useJob, { fnJob } from "@/core/composables/useJob";
 import { useLetterFormComponent } from "@/hooks/userLetterFormComponent";
 import { GetCodeRequest, VerifyCodeRequest } from "@/models/Otp";
 import { GetInfoResponse, InfoResponse } from "@/models/Teacher";
+import { StatusLetter } from "@/models/custom";
 import ModalCheckLetter from "@/modules/teacher/components/modal/ModalCheckLetter.vue";
 import TeacherRepository from "@/repositories/TeacherRepository";
 import { useAuth } from "@/stores/auth";
@@ -111,7 +112,6 @@ import { notification } from "ant-design-vue";
 import dayjs from "dayjs";
 import { catchError, map, of } from "rxjs";
 import { reactive, ref, unref } from "vue";
-import { StatusLetter } from "@/models/custom";
 
 // enum StatusLetter {
 //   PENDING = "pending",
@@ -367,6 +367,22 @@ const handleChange = () => {
   emit("refresh");
   closeModalCheckLetter();
 };
+
+
+const translationStatus = (statusRes: string) => {
+  switch (statusRes) {
+    case 'PENDING':
+      return 'Chờ duyệt'
+    case 'SUCCESS':
+      return 'Thành công'
+    case 'CONFIRM':
+      return 'Đang duyệt'
+    case 'APPROVED':
+      return 'Hủy đơn từ'
+    default:
+      return 'Chờ duyệt'
+  }
+}
 </script>
 
 <style lang="scss" scoped></style>
@@ -379,5 +395,14 @@ const handleChange = () => {
   box-shadow: 0px 4px 15px rgba(181, 181, 195, 0.25);
   min-height: 100%;
   width: 100%;
+}
+
+.tag-custom{
+  height: 30px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 14px !important;
+  align-items: center !important;
 }
 </style>

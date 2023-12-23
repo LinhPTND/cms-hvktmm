@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-2">
+  <div class="flex flex-col gap-2" style="width: 130px;">
     <ButtonView
       v-if="detail"
       :only-icon="onlyIcon"

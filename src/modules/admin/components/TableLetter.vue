@@ -43,7 +43,7 @@
       <a-table-column title="Trạng thái" data-index="status">
         <template #default="{ record }">
           <a-tag
-            class="w-[70px]"
+            class="min-w-[70px] tag-custom"
             :key="record.status"
             :color="
               record.status === StatusLetter.PENDING
@@ -53,11 +53,11 @@
                 : 'volcano'
             "
           >
-            {{ record.status.toString().toUpperCase() }}
+            {{ translationStatus(record.status.toString().toUpperCase()) }}
           </a-tag>
         </template>
       </a-table-column>
-      <a-table-column title="Hành động" align="center">
+      <a-table-column title="Hành động" text-align="center">
 
         <template #default="{ record }">
           <span>
@@ -70,16 +70,15 @@
 </template>
 
 <script lang="ts" setup>
-import TableColAction from "@/components/TableColAction.vue";
+import Avatar from "@/components/Avatar.vue";
 import { StatusLetter, TypeLetter } from "@/models/Letter";
 import ModalCheckLetter from "@/modules/admin/components/modal/ModalCheckLetter.vue";
+import { getNameFace, randomColor } from "@/utilities/resolveLetter";
 import { ColumnProps } from "ant-design-vue/lib/table";
 import dayjs, { Dayjs } from "dayjs";
-import { ref
-, computed} from "vue";
-import {getNameFace, randomColor} from "@/utilities/resolveLetter";
-import Avatar from "@/components/Avatar.vue";
-import TableAction from "@/components/TableAction.vue";
+import {
+ref
+} from "vue";
 
 
 const prop = defineProps({
@@ -171,6 +170,21 @@ const handleDelete = ({
   code: string;
   typeLetter: TypeLetter;
 }) => {};
+
+const translationStatus = (statusRes: string) => {
+  switch (statusRes) {
+    case 'PENDING':
+      return 'Chờ duyệt'
+    case 'SUCCESS':
+      return 'Thành công'
+    case 'CONFIRM':
+      return 'Đang duyệt'
+    case 'APPROVED':
+      return 'Hủy đơn từ'
+    default:
+      return 'Chờ duyệt'
+  }
+}
 </script>
 
 <style lang="scss" scoped></style>
@@ -183,5 +197,14 @@ const handleDelete = ({
   box-shadow: 0px 4px 15px rgba(181, 181, 195, 0.25);
   min-height: 100%;
   width: 100%;
+}
+
+.tag-custom{
+  height: 30px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 14px !important;
+  align-items: center !important;
 }
 </style>

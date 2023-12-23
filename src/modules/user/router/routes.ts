@@ -26,7 +26,7 @@ const route: RouteRecordRaw = {
       path: UserRoutePaths.Index,
       component: () => import("@/modules/user/views/UserIndex.vue"),
       meta: {
-        title: "Thông tin chung",
+        title: "",
         showChildrenInMenu: true,
         icon: DashboardOutlined,
       },

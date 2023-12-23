@@ -1,6 +1,6 @@
 <template>
   <div class="pt-2">
-    <a-button class="w-full" type="primary" @click="states.visible = true">Nạp tiền</a-button>
+    <a-button class="custom-btn" type="primary" @click="states.visible = true">Nạp tiền</a-button>
     <a-modal centered v-model:visible="states.visible" :title="'Nạp tiền cho sinh viên ' + dataUser?.name">
       <a-input-number v-model:value="states.money"></a-input-number>
       <template #footer>
@@ -13,10 +13,10 @@
   </div>
 </template>
 <script lang="ts" setup>
-import {reactive, defineProps} from "vue";
-import {fnJob} from "@/core/composables/useJob";
+import { fnJob } from "@/core/composables/useJob";
 import UserRepository from "@/repositories/UserRepository";
-import {notification} from "ant-design-vue";
+import { notification } from "ant-design-vue";
+import { defineProps, reactive } from "vue";
 
 const states = reactive({
   visible: false,
@@ -57,3 +57,9 @@ const handleDeposit = () => {
 
 
 </script>
+
+<style scoped lang="css">
+.custom-btn {
+  width: 130px !important;
+}
+</style>
