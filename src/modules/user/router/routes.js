@@ -31,7 +31,7 @@ const route = {
             path: UserRoutePaths.Index,
             component: () => import("@/modules/user/views/UserIndex.vue"),
             meta: {
-                title: "",
+                title: "Thông tin chung",
                 showChildrenInMenu: true,
                 icon: DashboardOutlined,
             },

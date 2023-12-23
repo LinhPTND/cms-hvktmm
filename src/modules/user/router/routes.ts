@@ -3,30 +3,35 @@ import AuthRoutePaths from "@/modules/auth/router/paths";
 import TeacherRoutePaths from "@/modules/teacher/router/paths";
 import UserRoutePaths from "@/modules/user/router/paths";
 import { DashboardOutlined, ProjectOutlined } from "@ant-design/icons-vue";
-import { RouteRecordRaw } from "vue-router";
+import "vue-router";
 import { useAuth } from "./../../../stores/auth";
-
-const route: RouteRecordRaw = {
+const route = {
   path: UserRoutePaths.Index,
   component: () => import("@/layouts/MainLayout/Index.vue"),
   beforeEnter: async (to, from, next) => {
     const { isLoggedIn, user } = useAuth();
     if (!isLoggedIn) {
       next({ name: "LOGIN" });
-    } else if (user?.type !== "user") {
+    }
+    else if (user?.type !== "user") {
       if (user?.type === "admin") {
         next(AdminRoutePaths.Index);
-      } else if (user?.type === "teacher") {
+      }
+      else if (user?.type === "teacher") {
         next(TeacherRoutePaths.Index);
-      } else next(AuthRoutePaths.Index);
-    } else next();
+      }
+      else
+        next(AuthRoutePaths.Index);
+    }
+    else
+      next();
   },
   children: [
     {
       path: UserRoutePaths.Index,
       component: () => import("@/modules/user/views/UserIndex.vue"),
       meta: {
-        title: "",
+        title: "Thông tin chung",
         showChildrenInMenu: true,
         icon: DashboardOutlined,
       },
@@ -86,8 +91,7 @@ const route: RouteRecordRaw = {
         },
         {
           path: UserRoutePaths.ReIssuanceTranscripts,
-          component: () =>
-            import("@/modules/user/views/ReIssuanceTranscripts.vue"),
+          component: () => import("@/modules/user/views/ReIssuanceTranscripts.vue"),
           meta: {
             title: "Đơn đề nghị giải quyết công việc",
           },
@@ -110,8 +114,7 @@ const route: RouteRecordRaw = {
         // },
         {
           path: UserRoutePaths.ReservationAcademicResult,
-          component: () =>
-            import("@/modules/user/views/ReservationAcademicResult.vue"),
+          component: () => import("@/modules/user/views/ReservationAcademicResult.vue"),
           meta: {
             title: "Đơn xin bảo lưu kết quả học tập",
           },
@@ -125,8 +128,7 @@ const route: RouteRecordRaw = {
         },
         {
           path: UserRoutePaths.ResignationStudying,
-          component: () =>
-            import("@/modules/user/views/ResignationStudying.vue"),
+          component: () => import("@/modules/user/views/ResignationStudying.vue"),
           meta: {
             title: "Đơn xin thôi học",
           },
@@ -151,5 +153,4 @@ const route: RouteRecordRaw = {
     },
   ],
 };
-
 export default route;
